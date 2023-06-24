@@ -1,7 +1,9 @@
 import React from 'react';
-import { CardContent, Typography, Grid, IconButton, Divider, Avatar, Box } from '@mui/material';
+import { CardContent, Typography, Grid, IconButton, Divider, Avatar, Box, Button } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { Stack } from '@mui/system';
+import ReactMarkdown from 'react-markdown' 
+
 import {
   IconBrandFacebook,
   IconBrandGithub,
@@ -9,6 +11,7 @@ import {
   IconBrandTwitter,
 } from '@tabler/icons-react';
 import BlankCard from '../../shared/BlankCard';
+import { CopyAll } from '@mui/icons-material';
 
 const SocialIcons = [
   {
@@ -53,30 +56,38 @@ const ProfileCard = () => {
   return (
     <Grid container spacing={3}>
       {profileCard.map((card, index) => (
-        <Grid item xs={12} sm={4} key={index}>
+        <Grid item xs={12} sm={12} key={index}>
           <BlankCard>
-            <CardContent>
-              <Stack direction={'column'} gap={2} alignItems="center">
-                <Avatar alt="Remy Sharp" src={card.avatar} sx={{ width: '80px', height: '80px' }} />
-                <Box textAlign={'center'}>
-                  <Typography variant="h5">{card.name}</Typography>
-                  <Typography variant="caption">{card.role}</Typography>
-                </Box>
-              </Stack>
-            </CardContent>
-            <Divider />
-            <Box
+          <Box
               p={2}
               py={1}
               textAlign={'center'}
               sx={{
-                backgroundColor: theme.palette.mode === 'dark' ? 'rgba(0, 0, 0, 0.05)' : 'grey.100',
+                backgroundColor: theme.palette.mode === 'dark' ? 'rgba(0, 0, 0, 0.05)' : '#1d2939',
+                borderEndStartRadius:0,
+                borderEndEndRadius:0
               }}
             >
-              {SocialIcons.map((sicon) => {
-                return <IconButton key={sicon.name}>{sicon.icon}</IconButton>;
-              })}
+             <Grid container flexDirection={'row'} justifyContent={'space-between'} alignContent={'center'}>
+<Grid item >
+<Typography variant="h5" color={"#fff"}>{card.name}</Typography>
+
+</Grid>
+<Grid item><Button><CopyAll/> Copy</Button></Grid>
+             </Grid>
             </Box>
+
+            <CardContent sx={{
+              backgroundColor:'#111828'
+            }}>
+              <Stack direction={'column'} gap={2} >
+                <Box  color={'#fff'}>
+                <ReactMarkdown># Hello, *world*!</ReactMarkdown>
+                </Box>
+              </Stack>
+            </CardContent>
+            <Divider />
+         
           </BlankCard>
         </Grid>
       ))}

@@ -1,6 +1,6 @@
+import { AppState, useSelector } from '@/store/Store';
 import { Card } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import { AppState, useSelector } from '../../../store/Store';
 
 type Props = {
   className?: string;
