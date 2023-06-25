@@ -6,6 +6,8 @@ import ProductRelated from '@/components/taskDetail/ProductRelated';
 import ChildCard from '@/components/shared/ChildCard';
 import Breadcrumb from '@/layouts/full/shared/breadcrumb/Breadcrumb';
 import { Grid } from '@mui/material';
+import { useTaskQuery } from '@/graphql/generated/schema';
+import { useRouter } from 'next/router';
 
 
 const BCrumb = [
@@ -23,6 +25,14 @@ const BCrumb = [
 ];
 
 const EcommerceDetail = () => {
+  const router = useRouter()
+  const {data , loading} = useTaskQuery({
+    variables:{
+      where:{
+        id:router.query.slug as string
+      }
+    }
+  })
   return (
     <PageContainer>
       <Grid container spacing={3} sx={{ maxWidth: { lg: '1055px', xl: '1200px' } }}>
@@ -33,7 +43,7 @@ const EcommerceDetail = () => {
             {/* ------------------------------------------- */}
             <Grid container spacing={3}>
               <Grid item xs={12} sm={12} lg={8}>
-              <TaskDetail />
+              <TaskDetail task={data}/>
 
               </Grid>
               <Grid item xs={12} sm={12} lg={4}>
@@ -44,10 +54,10 @@ const EcommerceDetail = () => {
           </ChildCard>
         </Grid>
         <Grid item xs={12} sm={12} lg={12}>
-          <ProductDesc />
+          <ProductDesc task={data} />
         </Grid>
         <Grid item xs={12} sm={12} lg={12}>
-          <ProductRelated />
+          <ProductRelated categoryId ={data?.task?.categoryId}/>
         </Grid>
       </Grid>
     </PageContainer>

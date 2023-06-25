@@ -26,6 +26,8 @@ import "../components/landingpage/testimonial/testimonial.css";
 import "../components/landingpage/demo-slider/demo-slider.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { ApolloClient, ApolloProvider } from "@apollo/client";
+import client from "@/apollo/client";
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -49,11 +51,14 @@ const MyApp = (props: MyAppProps) => {
   const Layout = layouts[Component.layout] || FullLayout;
 
   return (
+    <ApolloProvider client={client}  >
+
     <CacheProvider value={emotionCache}>
       <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
         <title>Modernize NextJs Admin template</title>
       </Head>
+      
       <ThemeProvider theme={theme}>
         <RTL direction={customizer.activeDir}>
           <CssBaseline />
@@ -63,6 +68,7 @@ const MyApp = (props: MyAppProps) => {
         </RTL>
       </ThemeProvider>
     </CacheProvider>
+    </ApolloProvider >
   );
 };
 

@@ -4,41 +4,25 @@ import { useTheme } from '@mui/material/styles';
 import { Stack } from '@mui/system';
 import ReactMarkdown from 'react-markdown' 
 
-import {
-  IconBrandFacebook,
-  IconBrandGithub,
-  IconBrandInstagram,
-  IconBrandTwitter,
-} from '@tabler/icons-react';
+
 import { CopyAll, Info } from '@mui/icons-material';
 import BlankCard from '../shared/BlankCard';
 
 
 
-const profileCard = [
-  {
-    name: 'Andrew Grant',
-    role: 'Technology Director',
-    avatar: "/images/profile/user-1.jpg",
-  },
-  {
-    name: 'Leo Pratt',
-    role: 'Telecom Analyst',
-    avatar: "/images/profile/user-2.jpg",
-  },
-  {
-    name: 'Charles Nunez',
-    role: 'Environmental Specialist',
-    avatar: "/images/profile/user-3.jpg",
-  },
-];
 
-const Tips = () => {
+
+const Tips = ({tips}: {tips:{
+  __typename?: "Tip" | undefined;
+  id: string;
+  description: string;
+}[] | undefined}
+) => {
   const theme = useTheme();
 
   return (
     <Grid container spacing={3}>
-      {profileCard.map((card, index) => (
+      {tips?.map((tip, index) => (
         <Grid item xs={12} sm={12} key={index}>
           <BlankCard>
          
@@ -50,7 +34,7 @@ const Tips = () => {
                     marginRight:10
                 }}/>
                     <Typography>
-                     {card.name}
+                     {tip.description}
                     </Typography>
              
                 </Box>

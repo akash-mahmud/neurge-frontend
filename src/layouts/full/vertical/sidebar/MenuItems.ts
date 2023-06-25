@@ -64,6 +64,7 @@ import {
   IconBorderStyle2,
   IconAppWindow
 } from '@tabler/icons-react';
+import { AddOutlined } from '@mui/icons-material';
 
 const Menuitems: MenuitemsType[] = [
   {
@@ -87,13 +88,13 @@ const Menuitems: MenuitemsType[] = [
     id: uniqueId(),
     title: 'Packs',
     icon: IconShoppingCart,
-    href: '/dashboards/ecommerce',
+    href: '/products',
   },
   {
     id: uniqueId(),
     title: 'Addons',
-    icon: IconShoppingCart,
-    href: '/dashboards/ecommerce',
+    icon: AddOutlined,
+    href: '/addons',
   },
 
 

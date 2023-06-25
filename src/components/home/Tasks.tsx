@@ -1,13 +1,10 @@
 import Image from "next/image";
 import { Box, CardContent, Chip, Grid, Typography } from "@mui/material";
 
-import icon1 from "public/images/svgs/icon-connect.svg";
 import icon2 from "public/images/svgs/icon-user-male.svg";
-import icon3 from "public/images/svgs/icon-briefcase.svg";
-import icon4 from "public/images/svgs/icon-mailbox.svg";
-import icon5 from "public/images/svgs/icon-favorites.svg";
-import icon6 from "public/images/svgs/icon-speech-bubble.svg";
+
 import Link from "next/link";
+import {  useTasksWithoutrelationalDataQuery } from "@/graphql/generated/schema";
 
 export const topcards = [
   {
@@ -46,13 +43,15 @@ export const topcards = [
 ];
 
 const Tasks = () => {
+  const {data:tasks , loading}  = useTasksWithoutrelationalDataQuery()
   return (
-    <Grid container spacing={3} mt={3}>
-      {topcards.map((topcard, i) => (
+    <Grid container spacing={3} >
+      {tasks?.tasks?.map((task, i) => (
         <Grid item xs={12} sm={4} lg={3} key={i}>
-          <Link href='/task/slug'>
-          <Box bgcolor={
-            topcard.bgcolor + ".light"} 
+          <Link href={`/task/${task.id}`}>
+          <Box 
+          bgcolor={
+            'primary' + ".light"} 
           
           textAlign="center">
             <CardContent>
@@ -66,23 +65,22 @@ const Tasks = () => {
                 {topcard.imoji}
               </Typography> */}
               <Typography align="left"
-                color={topcard.bgcolor + ".main"}
+                // color={topcard.bgcolor + ".main"}
                 mt={1}
                 variant="subtitle1"
                 fontWeight={600}
               >
-               {topcard.imoji} {topcard.title}
+               {task.imoji} {task.name}
               </Typography>
               <Grid display={'flex'} style={{
                 margin:5
               }} justifyContent={'flex-start'} item xs={12} sm={12} lg={12} key={i}>
               {
-                topcard.tags.map((tag)=> (
+                task.tags.map((tag)=> (
                     
                   <Chip style={{
                     marginRight:5
                   }}
-                  // color={item?.chipColor}
                   variant={ "filled"}
                   size="small"
                   label={tag}

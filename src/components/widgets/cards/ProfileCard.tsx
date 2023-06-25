@@ -12,6 +12,7 @@ import {
 } from '@tabler/icons-react';
 import BlankCard from '../../shared/BlankCard';
 import { CopyAll } from '@mui/icons-material';
+import { Prompt } from '@/graphql/generated/schema';
 
 const SocialIcons = [
   {
@@ -50,12 +51,14 @@ const profileCard = [
   },
 ];
 
-const ProfileCard = () => {
+const ProfileCard = ({prompts}:{
+  prompts:{ __typename?: "Prompt" | undefined; description: string; id: string; name: string; }[]| undefined|null
+}) => {
   const theme = useTheme();
 
   return (
     <Grid container spacing={3}>
-      {profileCard.map((card, index) => (
+      {prompts?.map((prompt, index) => (
         <Grid item xs={12} sm={12} key={index}>
           <BlankCard>
           <Box
@@ -70,7 +73,7 @@ const ProfileCard = () => {
             >
              <Grid container flexDirection={'row'} justifyContent={'space-between'} alignContent={'center'}>
 <Grid item >
-<Typography variant="h5" color={"#fff"}>{card.name}</Typography>
+<Typography variant="h5" color={"#fff"}>{prompt.name}</Typography>
 
 </Grid>
 <Grid item><Button><CopyAll/> Copy</Button></Grid>
@@ -82,7 +85,7 @@ const ProfileCard = () => {
             }}>
               <Stack direction={'column'} gap={2} >
                 <Box  color={'#fff'}>
-                <ReactMarkdown># Hello, *world*!</ReactMarkdown>
+                <ReactMarkdown>{prompt.description}</ReactMarkdown>
                 </Box>
               </Stack>
             </CardContent>

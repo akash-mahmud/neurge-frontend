@@ -25,8 +25,12 @@ import {
 import { IconCheck, IconMinus, IconPlus } from "@tabler/icons-react";
 import AlertCart from "../ecommerce/productCart/AlertCart";
 import { ProductType } from "../../types/apps/eCommerce";
+import { Task, TaskQueryResult } from "@/graphql/generated/schema";
+import { TaskQuery } from "@/graphql/generated/schema";
 
-const ProductDetail = () => {
+const ProductDetail = ({task}:{
+  task:TaskQuery|undefined| null
+}) => {
   const theme = useTheme();
   const dispatch = useDispatch();
   const router = useRouter();
@@ -68,7 +72,7 @@ const ProductDetail = () => {
   };
   return (
     <Box p={2}>
-      {product ? (
+      {task?.task ? (
         <>
           <Box display="flex" alignItems="center">
             {/* ------------------------------------------- */}
@@ -80,21 +84,26 @@ const ProductDetail = () => {
           {/* Title and description */}
           {/* ------------------------------------------- */}
           <Typography fontWeight="600" variant="h4" mt={1}>
-            🙂 In this prompt you will learn how to use chatgpt
+          {task?.task?.imoji} {task?.task?.name}
           </Typography>
           <Typography
             variant="subtitle2"
             mt={1}
             color={theme.palette.text.secondary}
           >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium magnam tempore error iste similique? Quidem perspiciatis, ut impedit assumenda in, fugit alias iste nulla animi hic commodi deleniti est, officia tenetur obcaecati maiores neque atque beatae. Ad maxime delectus tenetur autem corrupti. Quasi delectus non fugit voluptatum officiis magni iure minus deleniti alias voluptates quibusdam eligendi expedita exercitationem, vel sapiente doloribus, nihil voluptate, natus magnam blanditiis suscipit consectetur ex a! Recusandae accusamus quod expedita quas modi repudiandae consequuntur provident praesentium. Libero facilis temporibus, et repudiandae, quos nobis harum eaque error sed sint sit! Natus, deleniti ad blanditiis asperiores possimus veritatis?
+            {task?.task?.description}
           </Typography>
 
           {/* ------------------------------------------- */}
           {/* Ratings */}
           {/* ------------------------------------------- */}
           <Stack direction={"row"} alignItems="center" gap="10px" mt={2} pb={3}>
-            <Chip label="Marketing" color={"warning"} size="small" />
+            
+            {task?.task?.tags.map((tag, index)=> 
+            <Chip key={index} label={tag} color={"warning"} size="small" />
+
+            )}
+            
 
           </Stack>
           <Divider />

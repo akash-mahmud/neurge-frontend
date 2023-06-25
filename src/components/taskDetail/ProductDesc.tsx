@@ -15,6 +15,7 @@ import { IconPencil } from '@tabler/icons-react';
 import ChildCard from '../shared/ChildCard';
 import ProfileCard from '../widgets/cards/ProfileCard';
 import Tips from './Tips';
+import { TaskQuery } from '@/graphql/generated/schema';
 
 interface ProductCardProps {
   like: number;
@@ -68,7 +69,9 @@ const a11yProps = (index: number) => {
   };
 };
 
-const ProductDesc = () => {
+const ProductDesc = ({task}:{
+  task:TaskQuery|null|undefined
+}) => {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -104,7 +107,7 @@ Copy a prompt, replace placeholders with relevant text, and paste it at ChatGPT 
           </Typography>
           <Grid container spacing={3} mt={1}>
           <Grid lg={12} md={12}  item xs={12}>
-        <ProfileCard />
+        <ProfileCard prompts= {task?.task?.prompts}/>
       </Grid>
 </Grid>
           
@@ -120,7 +123,7 @@ Copy a prompt, replace placeholders with relevant text, and paste it at ChatGPT 
           </Typography>
           <Grid container spacing={3} mt={1}>
           <Grid lg={12} md={12}  item xs={12}>
-        <Tips />
+        <Tips  tips={task?.task?.tips}/>
       </Grid> </Grid>
         </TabPanel>
       </Box>
