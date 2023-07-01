@@ -7,10 +7,11 @@ import { CacheProvider, EmotionCache } from "@emotion/react";
 import { ThemeSettings } from "../theme/Theme";
 import createEmotionCache from "../createEmotionCache";
 import { Provider } from "react-redux";
-import Store from "../store/Store";
+import Store, { persistor } from "../store";
 import RTL from "./../layouts/full/shared/customizer/RTL";
-import { useSelector } from "../store/Store";
-import { AppState } from "../store/Store";
+import { useSelector } from "../store";
+import { AppState } from "../store";
+import { PersistGate } from 'redux-persist/integration/react'
 
 import BlankLayout from "../layouts/blank/BlankLayout";
 import FullLayout from "../layouts/full/FullLayout";
@@ -28,6 +29,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ApolloClient, ApolloProvider } from "@apollo/client";
 import client from "@/apollo/client";
+import Guard from "@/auth/Gard";
+import { Spin } from "antd";
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -49,31 +52,40 @@ const MyApp = (props: MyAppProps) => {
   const theme = ThemeSettings();
   const customizer = useSelector((state: AppState) => state.customizer);
   const Layout = layouts[Component.layout] || FullLayout;
+  const GeustGard = Component.guestGard || false
+  const AuthGard = Component.guestGard || true
 
   return (
     <ApolloProvider client={client}  >
 
-    <CacheProvider value={emotionCache}>
-      <Head>
-        <meta name="viewport" content="initial-scale=1, width=device-width" />
-        <title>Modernize NextJs Admin template</title>
-      </Head>
-      
-      <ThemeProvider theme={theme}>
-        <RTL direction={customizer.activeDir}>
-          <CssBaseline />
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </RTL>
-      </ThemeProvider>
-    </CacheProvider>
+      <CacheProvider value={emotionCache}>
+        <Guard authGuard={AuthGard} guestGuard={GeustGard}>
+          <Head>
+            <meta name="viewport" content="initial-scale=1, width=device-width" />
+            <title>Modernize NextJs Admin template</title>
+          </Head>
+
+          <ThemeProvider theme={theme}>
+            <RTL direction={customizer.activeDir}>
+              <CssBaseline />
+              <Layout>
+                <Component {...pageProps} />
+              </Layout>
+            </RTL>
+          </ThemeProvider>
+        </Guard>
+
+      </CacheProvider>
     </ApolloProvider >
   );
 };
 
 export default (props: MyAppProps) => (
   <Provider store={Store}>
+          <PersistGate loading={<Spin/>} persistor={persistor}>
+
     <MyApp {...props} />
+    </PersistGate>
+
   </Provider>
 );

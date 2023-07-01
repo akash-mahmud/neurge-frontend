@@ -1,5 +1,5 @@
 query Categories {
-  categories {
+  getUserCategories {
     id
     name
     createdAt

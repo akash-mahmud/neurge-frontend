@@ -1,5 +1,5 @@
 query tasksWithoutrelationalData($where: TaskWhereInput, $orderBy: [TaskOrderByWithRelationInput!], $take: Int) {
-  tasks(where: $where, orderBy: $orderBy, take: $take) {
+  getUserTasks(where: $where, orderBy: $orderBy, take: $take) {
     tags
     slug
     name

@@ -4,10 +4,12 @@ import PageContainer from "../components/container/PageContainer";
 
 import TopCards from "../components/home/Tasks";
 import { useCategoriesQuery } from "@/graphql/generated/schema";
+import { useRouter } from "next/router";
 
 
 const Modern = () => {
   const {data:categories , error, loading} = useCategoriesQuery()
+  const router = useRouter()
   return (
     <PageContainer>
       <Box>
@@ -19,7 +21,11 @@ const Modern = () => {
                     margin:5,
                     cursor:'pointer'
                   }}
-                  
+                  onClick={()=> {
+                    router.push({
+                      query: {}
+                    })
+                  }}
                   variant={ "filled"}
                   // size="small"
                   label={'All'}
@@ -27,8 +33,14 @@ const Modern = () => {
                   
                     
                     {
-              categories?.categories?.map((category) => (
-                <Chip key={category.id} style={{
+              categories?.getUserCategories?.map((category) => (
+                <Chip onClick={()=> {
+                  router.push({
+                    query: {
+                      category:category.id
+                    }
+                  })
+                }} key={category.id} style={{
                   margin:5,
                   cursor:'pointer'
                 }}

@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from '../../../store/Store';
+import { useSelector, useDispatch } from '../../../store';
 import {
   ListItemText,
   ListItemButton,
@@ -128,7 +128,7 @@ const EmailFilter = () => {
         <EmailCompose />
       </Box>
       <List>
-      <Scrollbar sx={{ height: { lg: 'calc(100vh - 100px)', md: '100vh' }, maxHeight: '800px' }}>
+        <Scrollbar sx={{ height: { lg: 'calc(100vh - 100px)', md: '100vh' }, maxHeight: '800px' }}>
           {filterData.map((filter) => {
             if (filter.filterbyTitle) {
               return (

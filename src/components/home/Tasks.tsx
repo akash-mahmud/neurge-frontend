@@ -5,48 +5,25 @@ import icon2 from "public/images/svgs/icon-user-male.svg";
 
 import Link from "next/link";
 import {  useTasksWithoutrelationalDataQuery } from "@/graphql/generated/schema";
+import { useRouter } from "next/router";
 
-export const topcards = [
-  {
-    icon: icon2,
-    imoji: '🙂',
-    title: "In this prompt you will learn how to use chatgpt",
-    digits: "96",
-    bgcolor: "primary",
-    tags:['ai', 'marketing', 'chatgpt' ]
-  },
 
-  {
-    icon: icon2,
-    imoji: '🙂',
-    title: "In this prompt you will learn how to use chatgpt",
-    digits: "96",
-    bgcolor: "primary",
-    tags:['ai', 'marketing', 'chatgpt' ]
-  },
-  {
-    icon: icon2,
-    imoji: '🙂',
-    title: "In this prompt you will learn how to use chatgpt",
-    digits: "96",
-    bgcolor: "primary",
-    tags:['ai', 'marketing', 'chatgpt' ]
-  },
-  {
-    icon: icon2,
-    imoji: '🙂',
-    title: "In this prompt you will learn how to use chatgpt",
-    digits: "96",
-    bgcolor: "primary",
-    tags:['ai', 'marketing', 'chatgpt' ]
-  },
-];
 
 const Tasks = () => {
-  const {data:tasks , loading}  = useTasksWithoutrelationalDataQuery()
+  const router = useRouter()
+
+  const {data:tasks , loading}  = useTasksWithoutrelationalDataQuery({
+    variables:{
+      where:{
+        categoryId:{
+          equals:router.query.category as string
+        }
+      }
+    }
+  })
   return (
     <Grid container spacing={3} >
-      {tasks?.tasks?.map((task, i) => (
+      {tasks?.getUserTasks?.map((task, i) => (
         <Grid item xs={12} sm={4} lg={3} key={i}>
           <Link href={`/task/${task.id}`}>
           <Box 

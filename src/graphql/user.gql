@@ -1,0 +1,22 @@
+mutation Register($input: CreateOneUserArgsCustom!) {
+  register(input: $input) {
+    message
+  }
+}
+
+mutation Login($password: String!, $email: String!) {
+  login(password: $password, email: $email) {
+    accessToken
+    isAuthenticated
+    message
+    success
+    user {
+      avater
+      email
+      id
+      name
+      password
+      role
+    }
+  }
+}

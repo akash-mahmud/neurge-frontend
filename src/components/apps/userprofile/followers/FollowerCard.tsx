@@ -12,7 +12,7 @@ import {
 } from '@mui/material';
 import React, { useEffect } from 'react';
 import BlankCard from '../../../../components/shared/BlankCard';
-import { useSelector, useDispatch } from '../../../../store/Store';
+import { useSelector, useDispatch } from '../../../../store';
 import { fetchFollwores, onToggleFollow } from '../../../../store/apps/userProfile/UserProfileSlice';
 import { IconMapPin, IconSearch } from '@tabler/icons-react';
 import { userType } from '../../../../types/apps/users';
@@ -76,7 +76,7 @@ const FollowerCard = () => {
                   <Stack direction={'row'} gap={2} alignItems="center">
                     <Avatar alt="Remy Sharp" src={profile.avatar} />
                     <Box>
-                    <Typography variant="h6" textOverflow={'ellipsis'} noWrap>{profile.name}</Typography>
+                      <Typography variant="h6" textOverflow={'ellipsis'} noWrap>{profile.name}</Typography>
                       <Typography
                         variant="caption"
                         sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}

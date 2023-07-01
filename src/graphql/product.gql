@@ -1,0 +1,17 @@
+query GetUserProducts($where: ProductWhereInput, $orderBy: [ProductOrderByWithRelationInput!], $cursor: ProductWhereUniqueInput, $take: Int, $skip: Int, $distinct: [ProductScalarFieldEnum!]) {
+  getUserProducts(where: $where, orderBy: $orderBy, cursor: $cursor, take: $take, skip: $skip, distinct: $distinct) {
+    category {
+      name
+      id
+    }
+    createdAt
+    description
+    id
+    image
+    moneyBackGuarantee
+    name
+    slug
+    taskAutomateCount
+    topTierPromptCount
+  }
+}
