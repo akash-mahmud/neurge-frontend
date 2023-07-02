@@ -1,0 +1,14 @@
+query GetUserBlogSingle($where: BlogWhereUniqueInput!) {
+  getUserBlogSingle(where: $where) {
+    addonBlogCategory {
+      id
+      name
+    }
+    description
+    id
+    imoji
+    title
+    createdAt
+    addonId
+  }
+}

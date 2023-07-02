@@ -19,7 +19,7 @@ const Header = () => {
   const customizer = useSelector((state: AppState) => state.customizer);
   const dispatch = useDispatch();
 
-  const AppBarStyled = styled(AppBar)(({ theme }) => ({
+  const AppBarStyled = styled(AppBar)(({ theme }:any) => ({
     boxShadow: 'none',
     background: theme.palette.background.paper,
     justifyContent: 'center',
@@ -28,7 +28,7 @@ const Header = () => {
       minHeight: customizer.TopbarHeight,
     },
   }));
-  const ToolbarStyled = styled(Toolbar)(({ theme }) => ({
+  const ToolbarStyled = styled(Toolbar)(({ theme }:any) => ({
     width: '100%',
     color: theme.palette.text.secondary,
   }));

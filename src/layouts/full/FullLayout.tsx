@@ -30,7 +30,7 @@ interface Props {
 // const FullLayout: FC = ({children}) => {
 const FullLayout: React.FC<Props> = ({ children }) => {
   const customizer = useSelector((state: AppState) => state.customizer);
-  const theme = useTheme();
+  const theme:any = useTheme();
 
   return (
     <MainWrapper>
@@ -43,6 +43,7 @@ const FullLayout: React.FC<Props> = ({ children }) => {
       {/* ------------------------------------------- */}
       <PageWrapper
         className="page-wrapper"
+        
         sx={{
           ...(customizer.isCollapse && {
             [theme.breakpoints.up("lg")]: {

@@ -102,7 +102,7 @@ const Sidebar = () => {
           //     : customizer.activeSidebarBg,
           // color: customizer.activeSidebarBg === '#ffffff' ? '' : 'white',
           border: '0 !important',
-          boxShadow: (theme) => theme.shadows[8],
+          boxShadow: (theme:any) => theme.shadows[8],
         },
       }}
     >

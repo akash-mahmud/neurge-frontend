@@ -27,7 +27,9 @@ export type Addon = {
   description?: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   img: Scalars['String']['output'];
+  imoji?: Maybe<Scalars['String']['output']>;
   name: Scalars['String']['output'];
+  purchaseUrl?: Maybe<Scalars['String']['output']>;
   purchasedByUsers: Array<User>;
   updatedAt: Scalars['DateTime']['output'];
 };
@@ -415,7 +417,9 @@ export type AddonCountAggregate = {
   description: Scalars['Int']['output'];
   id: Scalars['Int']['output'];
   img: Scalars['Int']['output'];
+  imoji: Scalars['Int']['output'];
   name: Scalars['Int']['output'];
+  purchaseUrl: Scalars['Int']['output'];
   updatedAt: Scalars['Int']['output'];
 };
 
@@ -424,7 +428,9 @@ export type AddonCountOrderByAggregateInput = {
   description?: InputMaybe<SortOrder>;
   id?: InputMaybe<SortOrder>;
   img?: InputMaybe<SortOrder>;
+  imoji?: InputMaybe<SortOrder>;
   name?: InputMaybe<SortOrder>;
+  purchaseUrl?: InputMaybe<SortOrder>;
   updatedAt?: InputMaybe<SortOrder>;
 };
 
@@ -435,7 +441,9 @@ export type AddonCreateInput = {
   description?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['String']['input']>;
   img: Scalars['String']['input'];
+  imoji?: InputMaybe<Scalars['String']['input']>;
   name: Scalars['String']['input'];
+  purchaseUrl?: InputMaybe<Scalars['String']['input']>;
   purchasedByUsers?: InputMaybe<UserCreateNestedManyWithoutPurchasedAddonsInput>;
   updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
 };
@@ -445,7 +453,9 @@ export type AddonCreateManyInput = {
   description?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['String']['input']>;
   img: Scalars['String']['input'];
+  imoji?: InputMaybe<Scalars['String']['input']>;
   name: Scalars['String']['input'];
+  purchaseUrl?: InputMaybe<Scalars['String']['input']>;
   updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
 };
 
@@ -488,7 +498,9 @@ export type AddonCreateWithoutAddonBlogCategoryInput = {
   description?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['String']['input']>;
   img: Scalars['String']['input'];
+  imoji?: InputMaybe<Scalars['String']['input']>;
   name: Scalars['String']['input'];
+  purchaseUrl?: InputMaybe<Scalars['String']['input']>;
   purchasedByUsers?: InputMaybe<UserCreateNestedManyWithoutPurchasedAddonsInput>;
   updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
 };
@@ -499,7 +511,9 @@ export type AddonCreateWithoutBlogInput = {
   description?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['String']['input']>;
   img: Scalars['String']['input'];
+  imoji?: InputMaybe<Scalars['String']['input']>;
   name: Scalars['String']['input'];
+  purchaseUrl?: InputMaybe<Scalars['String']['input']>;
   purchasedByUsers?: InputMaybe<UserCreateNestedManyWithoutPurchasedAddonsInput>;
   updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
 };
@@ -511,7 +525,9 @@ export type AddonCreateWithoutPurchasedByUsersInput = {
   description?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['String']['input']>;
   img: Scalars['String']['input'];
+  imoji?: InputMaybe<Scalars['String']['input']>;
   name: Scalars['String']['input'];
+  purchaseUrl?: InputMaybe<Scalars['String']['input']>;
   updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
 };
 
@@ -524,7 +540,9 @@ export type AddonGroupBy = {
   description?: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   img: Scalars['String']['output'];
+  imoji?: Maybe<Scalars['String']['output']>;
   name: Scalars['String']['output'];
+  purchaseUrl?: Maybe<Scalars['String']['output']>;
   updatedAt: Scalars['DateTime']['output'];
 };
 
@@ -540,7 +558,9 @@ export type AddonMaxAggregate = {
   description?: Maybe<Scalars['String']['output']>;
   id?: Maybe<Scalars['String']['output']>;
   img?: Maybe<Scalars['String']['output']>;
+  imoji?: Maybe<Scalars['String']['output']>;
   name?: Maybe<Scalars['String']['output']>;
+  purchaseUrl?: Maybe<Scalars['String']['output']>;
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
 };
 
@@ -549,7 +569,9 @@ export type AddonMaxOrderByAggregateInput = {
   description?: InputMaybe<SortOrder>;
   id?: InputMaybe<SortOrder>;
   img?: InputMaybe<SortOrder>;
+  imoji?: InputMaybe<SortOrder>;
   name?: InputMaybe<SortOrder>;
+  purchaseUrl?: InputMaybe<SortOrder>;
   updatedAt?: InputMaybe<SortOrder>;
 };
 
@@ -559,7 +581,9 @@ export type AddonMinAggregate = {
   description?: Maybe<Scalars['String']['output']>;
   id?: Maybe<Scalars['String']['output']>;
   img?: Maybe<Scalars['String']['output']>;
+  imoji?: Maybe<Scalars['String']['output']>;
   name?: Maybe<Scalars['String']['output']>;
+  purchaseUrl?: Maybe<Scalars['String']['output']>;
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
 };
 
@@ -568,7 +592,9 @@ export type AddonMinOrderByAggregateInput = {
   description?: InputMaybe<SortOrder>;
   id?: InputMaybe<SortOrder>;
   img?: InputMaybe<SortOrder>;
+  imoji?: InputMaybe<SortOrder>;
   name?: InputMaybe<SortOrder>;
+  purchaseUrl?: InputMaybe<SortOrder>;
   updatedAt?: InputMaybe<SortOrder>;
 };
 
@@ -584,7 +610,9 @@ export type AddonOrderByWithAggregationInput = {
   description?: InputMaybe<SortOrderInput>;
   id?: InputMaybe<SortOrder>;
   img?: InputMaybe<SortOrder>;
+  imoji?: InputMaybe<SortOrderInput>;
   name?: InputMaybe<SortOrder>;
+  purchaseUrl?: InputMaybe<SortOrderInput>;
   updatedAt?: InputMaybe<SortOrder>;
 };
 
@@ -595,7 +623,9 @@ export type AddonOrderByWithRelationInput = {
   description?: InputMaybe<SortOrderInput>;
   id?: InputMaybe<SortOrder>;
   img?: InputMaybe<SortOrder>;
+  imoji?: InputMaybe<SortOrderInput>;
   name?: InputMaybe<SortOrder>;
+  purchaseUrl?: InputMaybe<SortOrderInput>;
   purchasedByUsers?: InputMaybe<UserOrderByRelationAggregateInput>;
   updatedAt?: InputMaybe<SortOrder>;
 };
@@ -610,7 +640,9 @@ export enum AddonScalarFieldEnum {
   Description = 'description',
   Id = 'id',
   Img = 'img',
+  Imoji = 'imoji',
   Name = 'name',
+  PurchaseUrl = 'purchaseUrl',
   UpdatedAt = 'updatedAt'
 }
 
@@ -622,7 +654,9 @@ export type AddonScalarWhereInput = {
   description?: InputMaybe<StringNullableFilter>;
   id?: InputMaybe<StringFilter>;
   img?: InputMaybe<StringFilter>;
+  imoji?: InputMaybe<StringNullableFilter>;
   name?: InputMaybe<StringFilter>;
+  purchaseUrl?: InputMaybe<StringNullableFilter>;
   updatedAt?: InputMaybe<DateTimeFilter>;
 };
 
@@ -634,7 +668,9 @@ export type AddonScalarWhereWithAggregatesInput = {
   description?: InputMaybe<StringNullableWithAggregatesFilter>;
   id?: InputMaybe<StringWithAggregatesFilter>;
   img?: InputMaybe<StringWithAggregatesFilter>;
+  imoji?: InputMaybe<StringNullableWithAggregatesFilter>;
   name?: InputMaybe<StringWithAggregatesFilter>;
+  purchaseUrl?: InputMaybe<StringNullableWithAggregatesFilter>;
   updatedAt?: InputMaybe<DateTimeWithAggregatesFilter>;
 };
 
@@ -645,7 +681,9 @@ export type AddonUpdateInput = {
   description?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
   img?: InputMaybe<StringFieldUpdateOperationsInput>;
+  imoji?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   name?: InputMaybe<StringFieldUpdateOperationsInput>;
+  purchaseUrl?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   purchasedByUsers?: InputMaybe<UserUpdateManyWithoutPurchasedAddonsNestedInput>;
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
 };
@@ -655,7 +693,9 @@ export type AddonUpdateManyMutationInput = {
   description?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
   img?: InputMaybe<StringFieldUpdateOperationsInput>;
+  imoji?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   name?: InputMaybe<StringFieldUpdateOperationsInput>;
+  purchaseUrl?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
 };
 
@@ -708,7 +748,9 @@ export type AddonUpdateWithoutAddonBlogCategoryInput = {
   description?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
   img?: InputMaybe<StringFieldUpdateOperationsInput>;
+  imoji?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   name?: InputMaybe<StringFieldUpdateOperationsInput>;
+  purchaseUrl?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   purchasedByUsers?: InputMaybe<UserUpdateManyWithoutPurchasedAddonsNestedInput>;
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
 };
@@ -719,7 +761,9 @@ export type AddonUpdateWithoutBlogInput = {
   description?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
   img?: InputMaybe<StringFieldUpdateOperationsInput>;
+  imoji?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   name?: InputMaybe<StringFieldUpdateOperationsInput>;
+  purchaseUrl?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   purchasedByUsers?: InputMaybe<UserUpdateManyWithoutPurchasedAddonsNestedInput>;
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
 };
@@ -731,7 +775,9 @@ export type AddonUpdateWithoutPurchasedByUsersInput = {
   description?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
   img?: InputMaybe<StringFieldUpdateOperationsInput>;
+  imoji?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   name?: InputMaybe<StringFieldUpdateOperationsInput>;
+  purchaseUrl?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
 };
 
@@ -761,7 +807,9 @@ export type AddonWhereInput = {
   description?: InputMaybe<StringNullableFilter>;
   id?: InputMaybe<StringFilter>;
   img?: InputMaybe<StringFilter>;
+  imoji?: InputMaybe<StringNullableFilter>;
   name?: InputMaybe<StringFilter>;
+  purchaseUrl?: InputMaybe<StringNullableFilter>;
   purchasedByUsers?: InputMaybe<UserListRelationFilter>;
   updatedAt?: InputMaybe<DateTimeFilter>;
 };
@@ -3067,8 +3115,12 @@ export type Query = {
   getTask?: Maybe<Task>;
   getTip?: Maybe<Tip>;
   getUser?: Maybe<User>;
+  getUserAddons: Array<Addon>;
+  getUserBlogSingle: Blog;
   getUserCategories: Array<Category>;
+  getUserNotPurchasedAddons: Array<Addon>;
   getUserProducts: Array<Product>;
+  getUserPurchasedSingleAddon: Addon;
   getUserTasks: Array<Task>;
   groupByAddon: Array<AddonGroupBy>;
   groupByAddonBlogCategory: Array<AddonBlogCategoryGroupBy>;
@@ -3458,6 +3510,21 @@ export type QueryGetUserArgs = {
 };
 
 
+export type QueryGetUserAddonsArgs = {
+  cursor?: InputMaybe<AddonWhereUniqueInput>;
+  distinct?: InputMaybe<Array<AddonScalarFieldEnum>>;
+  orderBy?: InputMaybe<Array<AddonOrderByWithRelationInput>>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  take?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<AddonWhereInput>;
+};
+
+
+export type QueryGetUserBlogSingleArgs = {
+  where: BlogWhereUniqueInput;
+};
+
+
 export type QueryGetUserCategoriesArgs = {
   cursor?: InputMaybe<CategoryWhereUniqueInput>;
   distinct?: InputMaybe<Array<CategoryScalarFieldEnum>>;
@@ -3468,6 +3535,16 @@ export type QueryGetUserCategoriesArgs = {
 };
 
 
+export type QueryGetUserNotPurchasedAddonsArgs = {
+  cursor?: InputMaybe<AddonWhereUniqueInput>;
+  distinct?: InputMaybe<Array<AddonScalarFieldEnum>>;
+  orderBy?: InputMaybe<Array<AddonOrderByWithRelationInput>>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  take?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<AddonWhereInput>;
+};
+
+
 export type QueryGetUserProductsArgs = {
   cursor?: InputMaybe<ProductWhereUniqueInput>;
   distinct?: InputMaybe<Array<ProductScalarFieldEnum>>;
@@ -3475,6 +3552,11 @@ export type QueryGetUserProductsArgs = {
   skip?: InputMaybe<Scalars['Int']['input']>;
   take?: InputMaybe<Scalars['Int']['input']>;
   where?: InputMaybe<ProductWhereInput>;
+};
+
+
+export type QueryGetUserPurchasedSingleAddonArgs = {
+  where: AddonWhereUniqueInput;
 };
 
 
@@ -4893,6 +4975,56 @@ export type DefaultResponsce = {
   message: Scalars['String']['output'];
 };
 
+export type GetUserAddonsQueryVariables = Exact<{
+  where?: InputMaybe<AddonWhereInput>;
+  orderBy?: InputMaybe<Array<AddonOrderByWithRelationInput> | AddonOrderByWithRelationInput>;
+  cursor?: InputMaybe<AddonWhereUniqueInput>;
+  take?: InputMaybe<Scalars['Int']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  distinct?: InputMaybe<Array<AddonScalarFieldEnum> | AddonScalarFieldEnum>;
+}>;
+
+
+export type GetUserAddonsQuery = { __typename?: 'Query', getUserAddons: Array<{ __typename?: 'Addon', id: string, img: string, name: string, createdAt: any, purchaseUrl?: string | null, imoji?: string | null }> };
+
+export type GetUserNotPurchasedAddonsQueryVariables = Exact<{
+  where?: InputMaybe<AddonWhereInput>;
+  orderBy?: InputMaybe<Array<AddonOrderByWithRelationInput> | AddonOrderByWithRelationInput>;
+  cursor?: InputMaybe<AddonWhereUniqueInput>;
+  take?: InputMaybe<Scalars['Int']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  distinct?: InputMaybe<Array<AddonScalarFieldEnum> | AddonScalarFieldEnum>;
+}>;
+
+
+export type GetUserNotPurchasedAddonsQuery = { __typename?: 'Query', getUserNotPurchasedAddons: Array<{ __typename?: 'Addon', createdAt: any, id: string, img: string, name: string, purchaseUrl?: string | null, imoji?: string | null }> };
+
+export type GetUserPurchasedSingleAddonQueryVariables = Exact<{
+  where: AddonWhereUniqueInput;
+  addonBlogCategoryWhere2?: InputMaybe<AddonBlogCategoryWhereInput>;
+  orderBy?: InputMaybe<Array<AddonBlogCategoryOrderByWithRelationInput> | AddonBlogCategoryOrderByWithRelationInput>;
+  cursor?: InputMaybe<AddonBlogCategoryWhereUniqueInput>;
+  take?: InputMaybe<Scalars['Int']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  distinct?: InputMaybe<Array<AddonBlogCategoryScalarFieldEnum> | AddonBlogCategoryScalarFieldEnum>;
+  blogWhere2?: InputMaybe<BlogWhereInput>;
+  blogOrderBy2?: InputMaybe<Array<BlogOrderByWithRelationInput> | BlogOrderByWithRelationInput>;
+  blogCursor2?: InputMaybe<BlogWhereUniqueInput>;
+  blogTake2?: InputMaybe<Scalars['Int']['input']>;
+  blogSkip2?: InputMaybe<Scalars['Int']['input']>;
+  blogDistinct2?: InputMaybe<Array<BlogScalarFieldEnum> | BlogScalarFieldEnum>;
+}>;
+
+
+export type GetUserPurchasedSingleAddonQuery = { __typename?: 'Query', getUserPurchasedSingleAddon: { __typename?: 'Addon', updatedAt: any, name: string, imoji?: string | null, img: string, id: string, description?: string | null, createdAt: any, addonBlogCategory: Array<{ __typename?: 'AddonBlogCategory', createdAt: any, id: string, name: string, updatedAt: any, _count?: { __typename?: 'AddonBlogCategoryCount', blog: number } | null, blog: Array<{ __typename?: 'Blog', id: string, imoji: string, title: string, createdAt: any, updatedAt: any }> }>, _count?: { __typename?: 'AddonCount', addonBlogCategory: number, blog: number } | null } };
+
+export type GetUserBlogSingleQueryVariables = Exact<{
+  where: BlogWhereUniqueInput;
+}>;
+
+
+export type GetUserBlogSingleQuery = { __typename?: 'Query', getUserBlogSingle: { __typename?: 'Blog', description: string, id: string, imoji: string, title: string, createdAt: any, addonId: string, addonBlogCategory?: { __typename?: 'AddonBlogCategory', id: string, name: string } | null } };
+
 export type CategoriesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -4950,6 +5082,241 @@ export type LoginMutationVariables = Exact<{
 export type LoginMutation = { __typename?: 'Mutation', login?: { __typename?: 'LoginResponsce', accessToken: string, isAuthenticated: boolean, message: string, success: boolean, user: { __typename?: 'User', avater?: string | null, email: string, id: string, name: string, password: string, role: UserRole } } | null };
 
 
+export const GetUserAddonsDocument = gql`
+    query GetUserAddons($where: AddonWhereInput, $orderBy: [AddonOrderByWithRelationInput!], $cursor: AddonWhereUniqueInput, $take: Int, $skip: Int, $distinct: [AddonScalarFieldEnum!]) {
+  getUserAddons(
+    where: $where
+    orderBy: $orderBy
+    cursor: $cursor
+    take: $take
+    skip: $skip
+    distinct: $distinct
+  ) {
+    id
+    img
+    name
+    createdAt
+    purchaseUrl
+    imoji
+  }
+}
+    `;
+
+/**
+ * __useGetUserAddonsQuery__
+ *
+ * To run a query within a React component, call `useGetUserAddonsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetUserAddonsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetUserAddonsQuery({
+ *   variables: {
+ *      where: // value for 'where'
+ *      orderBy: // value for 'orderBy'
+ *      cursor: // value for 'cursor'
+ *      take: // value for 'take'
+ *      skip: // value for 'skip'
+ *      distinct: // value for 'distinct'
+ *   },
+ * });
+ */
+export function useGetUserAddonsQuery(baseOptions?: Apollo.QueryHookOptions<GetUserAddonsQuery, GetUserAddonsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetUserAddonsQuery, GetUserAddonsQueryVariables>(GetUserAddonsDocument, options);
+      }
+export function useGetUserAddonsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetUserAddonsQuery, GetUserAddonsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetUserAddonsQuery, GetUserAddonsQueryVariables>(GetUserAddonsDocument, options);
+        }
+export type GetUserAddonsQueryHookResult = ReturnType<typeof useGetUserAddonsQuery>;
+export type GetUserAddonsLazyQueryHookResult = ReturnType<typeof useGetUserAddonsLazyQuery>;
+export type GetUserAddonsQueryResult = Apollo.QueryResult<GetUserAddonsQuery, GetUserAddonsQueryVariables>;
+export const GetUserNotPurchasedAddonsDocument = gql`
+    query GetUserNotPurchasedAddons($where: AddonWhereInput, $orderBy: [AddonOrderByWithRelationInput!], $cursor: AddonWhereUniqueInput, $take: Int, $skip: Int, $distinct: [AddonScalarFieldEnum!]) {
+  getUserNotPurchasedAddons(
+    where: $where
+    orderBy: $orderBy
+    cursor: $cursor
+    take: $take
+    skip: $skip
+    distinct: $distinct
+  ) {
+    createdAt
+    id
+    img
+    name
+    purchaseUrl
+    imoji
+  }
+}
+    `;
+
+/**
+ * __useGetUserNotPurchasedAddonsQuery__
+ *
+ * To run a query within a React component, call `useGetUserNotPurchasedAddonsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetUserNotPurchasedAddonsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetUserNotPurchasedAddonsQuery({
+ *   variables: {
+ *      where: // value for 'where'
+ *      orderBy: // value for 'orderBy'
+ *      cursor: // value for 'cursor'
+ *      take: // value for 'take'
+ *      skip: // value for 'skip'
+ *      distinct: // value for 'distinct'
+ *   },
+ * });
+ */
+export function useGetUserNotPurchasedAddonsQuery(baseOptions?: Apollo.QueryHookOptions<GetUserNotPurchasedAddonsQuery, GetUserNotPurchasedAddonsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetUserNotPurchasedAddonsQuery, GetUserNotPurchasedAddonsQueryVariables>(GetUserNotPurchasedAddonsDocument, options);
+      }
+export function useGetUserNotPurchasedAddonsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetUserNotPurchasedAddonsQuery, GetUserNotPurchasedAddonsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetUserNotPurchasedAddonsQuery, GetUserNotPurchasedAddonsQueryVariables>(GetUserNotPurchasedAddonsDocument, options);
+        }
+export type GetUserNotPurchasedAddonsQueryHookResult = ReturnType<typeof useGetUserNotPurchasedAddonsQuery>;
+export type GetUserNotPurchasedAddonsLazyQueryHookResult = ReturnType<typeof useGetUserNotPurchasedAddonsLazyQuery>;
+export type GetUserNotPurchasedAddonsQueryResult = Apollo.QueryResult<GetUserNotPurchasedAddonsQuery, GetUserNotPurchasedAddonsQueryVariables>;
+export const GetUserPurchasedSingleAddonDocument = gql`
+    query GetUserPurchasedSingleAddon($where: AddonWhereUniqueInput!, $addonBlogCategoryWhere2: AddonBlogCategoryWhereInput, $orderBy: [AddonBlogCategoryOrderByWithRelationInput!], $cursor: AddonBlogCategoryWhereUniqueInput, $take: Int, $skip: Int, $distinct: [AddonBlogCategoryScalarFieldEnum!], $blogWhere2: BlogWhereInput, $blogOrderBy2: [BlogOrderByWithRelationInput!], $blogCursor2: BlogWhereUniqueInput, $blogTake2: Int, $blogSkip2: Int, $blogDistinct2: [BlogScalarFieldEnum!]) {
+  getUserPurchasedSingleAddon(where: $where) {
+    updatedAt
+    name
+    imoji
+    img
+    id
+    description
+    createdAt
+    addonBlogCategory(
+      where: $addonBlogCategoryWhere2
+      orderBy: $orderBy
+      cursor: $cursor
+      take: $take
+      skip: $skip
+      distinct: $distinct
+    ) {
+      _count {
+        blog
+      }
+      blog(
+        where: $blogWhere2
+        orderBy: $blogOrderBy2
+        cursor: $blogCursor2
+        take: $blogTake2
+        skip: $blogSkip2
+        distinct: $blogDistinct2
+      ) {
+        id
+        imoji
+        title
+        createdAt
+        updatedAt
+      }
+      createdAt
+      id
+      name
+      updatedAt
+    }
+    _count {
+      addonBlogCategory
+      blog
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetUserPurchasedSingleAddonQuery__
+ *
+ * To run a query within a React component, call `useGetUserPurchasedSingleAddonQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetUserPurchasedSingleAddonQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetUserPurchasedSingleAddonQuery({
+ *   variables: {
+ *      where: // value for 'where'
+ *      addonBlogCategoryWhere2: // value for 'addonBlogCategoryWhere2'
+ *      orderBy: // value for 'orderBy'
+ *      cursor: // value for 'cursor'
+ *      take: // value for 'take'
+ *      skip: // value for 'skip'
+ *      distinct: // value for 'distinct'
+ *      blogWhere2: // value for 'blogWhere2'
+ *      blogOrderBy2: // value for 'blogOrderBy2'
+ *      blogCursor2: // value for 'blogCursor2'
+ *      blogTake2: // value for 'blogTake2'
+ *      blogSkip2: // value for 'blogSkip2'
+ *      blogDistinct2: // value for 'blogDistinct2'
+ *   },
+ * });
+ */
+export function useGetUserPurchasedSingleAddonQuery(baseOptions: Apollo.QueryHookOptions<GetUserPurchasedSingleAddonQuery, GetUserPurchasedSingleAddonQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetUserPurchasedSingleAddonQuery, GetUserPurchasedSingleAddonQueryVariables>(GetUserPurchasedSingleAddonDocument, options);
+      }
+export function useGetUserPurchasedSingleAddonLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetUserPurchasedSingleAddonQuery, GetUserPurchasedSingleAddonQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetUserPurchasedSingleAddonQuery, GetUserPurchasedSingleAddonQueryVariables>(GetUserPurchasedSingleAddonDocument, options);
+        }
+export type GetUserPurchasedSingleAddonQueryHookResult = ReturnType<typeof useGetUserPurchasedSingleAddonQuery>;
+export type GetUserPurchasedSingleAddonLazyQueryHookResult = ReturnType<typeof useGetUserPurchasedSingleAddonLazyQuery>;
+export type GetUserPurchasedSingleAddonQueryResult = Apollo.QueryResult<GetUserPurchasedSingleAddonQuery, GetUserPurchasedSingleAddonQueryVariables>;
+export const GetUserBlogSingleDocument = gql`
+    query GetUserBlogSingle($where: BlogWhereUniqueInput!) {
+  getUserBlogSingle(where: $where) {
+    addonBlogCategory {
+      id
+      name
+    }
+    description
+    id
+    imoji
+    title
+    createdAt
+    addonId
+  }
+}
+    `;
+
+/**
+ * __useGetUserBlogSingleQuery__
+ *
+ * To run a query within a React component, call `useGetUserBlogSingleQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetUserBlogSingleQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetUserBlogSingleQuery({
+ *   variables: {
+ *      where: // value for 'where'
+ *   },
+ * });
+ */
+export function useGetUserBlogSingleQuery(baseOptions: Apollo.QueryHookOptions<GetUserBlogSingleQuery, GetUserBlogSingleQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetUserBlogSingleQuery, GetUserBlogSingleQueryVariables>(GetUserBlogSingleDocument, options);
+      }
+export function useGetUserBlogSingleLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetUserBlogSingleQuery, GetUserBlogSingleQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetUserBlogSingleQuery, GetUserBlogSingleQueryVariables>(GetUserBlogSingleDocument, options);
+        }
+export type GetUserBlogSingleQueryHookResult = ReturnType<typeof useGetUserBlogSingleQuery>;
+export type GetUserBlogSingleLazyQueryHookResult = ReturnType<typeof useGetUserBlogSingleLazyQuery>;
+export type GetUserBlogSingleQueryResult = Apollo.QueryResult<GetUserBlogSingleQuery, GetUserBlogSingleQueryVariables>;
 export const CategoriesDocument = gql`
     query Categories {
   getUserCategories {

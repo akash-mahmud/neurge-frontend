@@ -1,0 +1,54 @@
+query GetUserAddons($where: AddonWhereInput, $orderBy: [AddonOrderByWithRelationInput!], $cursor: AddonWhereUniqueInput, $take: Int, $skip: Int, $distinct: [AddonScalarFieldEnum!]) {
+  getUserAddons(where: $where, orderBy: $orderBy, cursor: $cursor, take: $take, skip: $skip, distinct: $distinct) {
+    id
+    img
+    name
+    createdAt
+        purchaseUrl
+    imoji
+  }
+}
+
+
+query GetUserNotPurchasedAddons($where: AddonWhereInput, $orderBy: [AddonOrderByWithRelationInput!], $cursor: AddonWhereUniqueInput, $take: Int, $skip: Int, $distinct: [AddonScalarFieldEnum!]) {
+  getUserNotPurchasedAddons(where: $where, orderBy: $orderBy, cursor: $cursor, take: $take, skip: $skip, distinct: $distinct) {
+    createdAt
+    id
+    img
+    name
+        purchaseUrl
+    imoji
+  }
+}
+
+query GetUserPurchasedSingleAddon($where: AddonWhereUniqueInput!, $addonBlogCategoryWhere2: AddonBlogCategoryWhereInput, $orderBy: [AddonBlogCategoryOrderByWithRelationInput!], $cursor: AddonBlogCategoryWhereUniqueInput, $take: Int, $skip: Int, $distinct: [AddonBlogCategoryScalarFieldEnum!], $blogWhere2: BlogWhereInput, $blogOrderBy2: [BlogOrderByWithRelationInput!], $blogCursor2: BlogWhereUniqueInput, $blogTake2: Int, $blogSkip2: Int, $blogDistinct2: [BlogScalarFieldEnum!]) {
+  getUserPurchasedSingleAddon(where: $where) {
+    updatedAt
+    name
+    imoji
+    img
+    id
+    description
+    createdAt
+    addonBlogCategory(where: $addonBlogCategoryWhere2, orderBy: $orderBy, cursor: $cursor, take: $take, skip: $skip, distinct: $distinct) {
+      _count {
+        blog
+      }
+      blog(where: $blogWhere2, orderBy: $blogOrderBy2, cursor: $blogCursor2, take: $blogTake2, skip: $blogSkip2, distinct: $blogDistinct2) {
+        id
+        imoji
+        title
+        createdAt
+        updatedAt
+      }
+      createdAt
+      id
+      name
+      updatedAt
+    }
+    _count {
+      addonBlogCategory
+      blog
+    }
+  }
+}

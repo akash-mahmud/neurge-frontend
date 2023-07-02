@@ -15,7 +15,7 @@ export const Profile = () => {
   const router = useRouter()
   const {user} = useSelector((state ) => state.auth)
   
-  const logoutUser = () => {
+   const logoutUser = () => {
     dispatch(logout())
      router.push('/login')
 

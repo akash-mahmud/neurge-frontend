@@ -1,7 +1,8 @@
 import { Grid } from '@mui/material';
 import PageContainer from '../../../src/components/container/PageContainer';
 
-import PaymentGateways from '../../../src/components/dashboards/ecommerce/PaymentGateways';
+import PaymentGateways from '../../components/addon/Purchased';
+import NotPurchased from '@/components/addon/NotPurchased';
 
 
 
@@ -17,16 +18,16 @@ const BCrumb = [
 export default function index() {
   return (
     <PageContainer>
-   
-    <Grid container spacing={3}>
-      
+
+      <Grid container spacing={3}>
 
 
-      <Grid item xs={12} sm={6} lg={4}>
-        <PaymentGateways />
+
+        <Grid item xs={12}>
+          <PaymentGateways />
+        </Grid>
+
+
       </Grid>
- 
-    
-    </Grid>
-    </PageContainer>  )
+    </PageContainer>)
 }
