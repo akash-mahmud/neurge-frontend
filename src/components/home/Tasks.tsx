@@ -24,7 +24,7 @@ const Tasks = () => {
   return (
     <Grid container spacing={3} >
       {tasks?.getUserTasks?.map((task, i) => (
-        <Grid item xs={12} sm={4} lg={3} key={i}>
+        <Grid item xs={12} sm={4} lg={3} key={task.id}>
           <Link href={`/task/${task.id}`}>
           <Box 
           bgcolor={
@@ -53,9 +53,9 @@ const Tasks = () => {
                 margin:5
               }} justifyContent={'flex-start'} item xs={12} sm={12} lg={12} key={i}>
               {
-                task.tags.map((tag)=> (
+                task.tags.map((tag , index)=> (
                     
-                  <Chip style={{
+                  <Chip  key={index} style={{
                     marginRight:5
                   }}
                   variant={ "filled"}

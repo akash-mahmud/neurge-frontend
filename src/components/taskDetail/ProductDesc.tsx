@@ -13,9 +13,9 @@ import {
 } from '@mui/material';
 import { IconPencil } from '@tabler/icons-react';
 import ChildCard from '../shared/ChildCard';
-import ProfileCard from '../widgets/cards/ProfileCard';
 import Tips from './Tips';
 import { TaskQuery } from '@/graphql/generated/schema';
+import Prompts from './Prompts';
 
 interface ProductCardProps {
   like: number;
@@ -107,7 +107,7 @@ Copy a prompt, replace placeholders with relevant text, and paste it at ChatGPT 
           </Typography>
           <Grid container spacing={3} mt={1}>
           <Grid lg={12} md={12}  item xs={12}>
-        <ProfileCard prompts= {task?.task?.prompts}/>
+        <Prompts prompts= {task?.task?.prompts}/>
       </Grid>
 </Grid>
           

@@ -65,7 +65,7 @@ const Cart = () => {
             <IconButton
               color="inherit"
               sx={{
-                color: (theme) => theme.palette.grey.A200,
+                color: (theme:any) => theme.palette.grey.A200,
               }}
               onClick={handleDrawerClose}
             >

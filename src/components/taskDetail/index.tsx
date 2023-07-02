@@ -23,7 +23,6 @@ import {
   addToCart,
 } from "../../store/apps/eCommerce/ECommerceSlice";
 import { IconCheck, IconMinus, IconPlus } from "@tabler/icons-react";
-import AlertCart from "../ecommerce/productCart/AlertCart";
 import { ProductType } from "../../types/apps/eCommerce";
 import { Task, TaskQueryResult } from "@/graphql/generated/schema";
 import { TaskQuery } from "@/graphql/generated/schema";
@@ -114,7 +113,7 @@ const ProductDetail = ({ task }: {
           {/* ------------------------------------------- */}
           {/* Alert When click on add to cart */}
           {/* ------------------------------------------- */}
-          <AlertCart handleClose={handleClose} openCartAlert={cartalert} />
+          {/* <AlertCart handleClose={handleClose} openCartAlert={cartalert} /> */}
         </>
       ) : (
         "No product"

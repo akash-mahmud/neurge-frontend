@@ -11,7 +11,7 @@ const NavListing = () => {
   const pathDirect = pathname;
   const pathWithoutLastPart = pathname.slice(0, pathname.lastIndexOf("/"));
   const customizer = useSelector((state: AppState) => state.customizer);
-  const lgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up("lg"));
+  const lgUp = useMediaQuery((theme: any) => theme.breakpoints.up("lg"));
   const hideMenu = lgUp
     ? customizer.isCollapse && !customizer.isSidebarHover
     : "";

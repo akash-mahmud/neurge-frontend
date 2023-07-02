@@ -7,7 +7,7 @@ import SidebarItems from '../../vertical/sidebar/SidebarItems';
 import { AppState } from '../../../../store';
 
 const Navigation = () => {
-  const lgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('lg'));
+  const lgUp = useMediaQuery((theme: any) => theme.breakpoints.up('lg'));
   const customizer = useSelector((state: AppState) => state.customizer);
   const dispatch = useDispatch();
 
@@ -38,7 +38,7 @@ const Navigation = () => {
         sx: {
           width: customizer.SidebarWidth,
           border: '0 !important',
-          boxShadow: (theme) => theme.shadows[8],
+          boxShadow: (theme:any) => theme.shadows[8],
         },
       }}
     >

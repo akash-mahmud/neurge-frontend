@@ -16,27 +16,27 @@ const DefaultcolorsCheckbox = () => (
         <Checkbox
             defaultChecked
             sx={{
-                color: (theme) => theme.palette.success.main,
+                color: (theme:any) => theme.palette.success.main,
                 '&.Mui-checked': {
-                    color: (theme) => theme.palette.success.main,
+                    color: (theme:any) => theme.palette.success.main,
                 },
             }}
         />
         <Checkbox
             defaultChecked
             sx={{
-                color: (theme) => theme.palette.error.main,
+                color: (theme:any) => theme.palette.error.main,
                 '&.Mui-checked': {
-                    color: (theme) => theme.palette.error.main,
+                    color: (theme:any) => theme.palette.error.main,
                 },
             }}
         />
         <Checkbox
             defaultChecked
             sx={{
-                color: (theme) => theme.palette.warning.main,
+                color: (theme:any) => theme.palette.warning.main,
                 '&.Mui-checked': {
-                    color: (theme) => theme.palette.warning.main,
+                    color: (theme:any) => theme.palette.warning.main,
                 },
             }}
         />

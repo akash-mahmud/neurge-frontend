@@ -30,9 +30,9 @@ const ColorsRadio = () => {
                 onChange={handleChange}
                 inputProps={{ 'aria-label': 'primary checkbox' }}
                 sx={{
-                    color: (theme) => theme.palette.success.main,
+                    color: (theme: { palette: { success: { main: any; }; }; }) => theme.palette.success.main,
                     '&.Mui-checked': {
-                        color: (theme) => theme.palette.success.main,
+                        color: (theme: { palette: { success: { main: any; }; }; }) => theme.palette.success.main,
                     },
                 }}
             />
@@ -42,9 +42,9 @@ const ColorsRadio = () => {
                 onChange={handleChange}
                 inputProps={{ 'aria-label': 'primary checkbox' }}
                 sx={{
-                    color: (theme) => theme.palette.error.main,
+                    color: (theme: { palette: { error: { main: any; }; }; }) => theme.palette.error.main,
                     '&.Mui-checked': {
-                        color: (theme) => theme.palette.error.main,
+                        color: (theme: { palette: { error: { main: any; }; }; }) => theme.palette.error.main,
                     },
                 }}
             />
@@ -54,9 +54,9 @@ const ColorsRadio = () => {
                 onChange={handleChange}
                 inputProps={{ 'aria-label': 'primary checkbox' }}
                 sx={{
-                    color: (theme) => theme.palette.warning.main,
+                    color: (theme: { palette: { warning: { main: any; }; }; }) => theme.palette.warning.main,
                     '&.Mui-checked': {
-                        color: (theme) => theme.palette.warning.main,
+                        color: (theme: { palette: { warning: { main: any; }; }; }) => theme.palette.warning.main,
                     },
                 }}
             />

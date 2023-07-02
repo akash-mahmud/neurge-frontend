@@ -2,7 +2,6 @@ import { Grid } from '@mui/material';
 import PageContainer from '../../../src/components/container/PageContainer';
 
 import PaymentGateways from '../../components/addon/Purchased';
-import NotPurchased from '@/components/addon/NotPurchased';
 
 
 

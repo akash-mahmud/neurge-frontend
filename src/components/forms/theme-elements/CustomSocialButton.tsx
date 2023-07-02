@@ -4,7 +4,7 @@ import { Button } from '@mui/material';
 
 const CustomSocialButton = styled((props: any) => (
   <Button variant="outlined" size="large" color="inherit" {...props} />
-))(({ theme }) => ({
+))(({ theme }:any) => ({
   border: `1px solid ${theme.palette.divider}`,
 
   '&:hover': {

@@ -1,30 +1,32 @@
 import React, { useEffect } from "react";
 import {
   Box,
-  Stack,
   Typography,
   CardContent,
   Grid,
-  Rating,
-  Skeleton,
+
   Chip,
 } from "@mui/material";
 import { useSelector, useDispatch } from "../../store";
 import { fetchProducts } from "../../store/apps/eCommerce/ECommerceSlice";
 import Link from "next/link";
-import BlankCard from "../shared/BlankCard";
 import { ProductType } from "../../types/apps/eCommerce";
-import { topcards } from "../home/Tasks";
 import { useTasksWithoutrelationalDataQuery } from "@/graphql/generated/schema";
 import { SortOrder } from "@/graphql/generated/schema";
+import { useRouter } from "next/router";
 
 const ProductRelated = ({ categoryId }: { categoryId: string | undefined }) => {
   const dispatch = useDispatch();
-
+const router = useRouter()
   const { data, error, loading } = useTasksWithoutrelationalDataQuery({
     variables: {
 
       where: {
+        id:{
+not:{
+  equals:router.query.slug as string
+}
+        },
         categoryId: {
           equals: categoryId
         }
@@ -70,8 +72,8 @@ const ProductRelated = ({ categoryId }: { categoryId: string | undefined }) => {
         Related Tasks
       </Typography>
       <Grid container spacing={3} mt={3}>
-        {data?.tasks?.map((task, i) => (
-          <Grid item xs={12} sm={4} lg={3} key={i}>
+        {data?.getUserTasks?.map((task, i) => (
+          <Grid item xs={12} sm={4} lg={3} key={task.id}>
             <Link href={`/task/${task.id}`}>
               <Box bgcolor={
                 'primary' + ".light"}
@@ -99,9 +101,9 @@ const ProductRelated = ({ categoryId }: { categoryId: string | undefined }) => {
                     margin: 5
                   }} justifyContent={'flex-start'} item xs={12} sm={12} lg={12} key={i}>
                     {
-                      task.tags.map((tag) => (
+                      task.tags.map((tag , index) => (
 
-                        <Chip style={{
+                        <Chip key={index} style={{
                           marginRight: 5
                         }}
                           // color={item?.chipColor}

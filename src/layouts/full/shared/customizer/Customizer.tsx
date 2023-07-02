@@ -52,7 +52,7 @@ const Customizer: FC = () => {
 
   const dispatch = useDispatch();
 
-  const StyledBox = styled(Box)<BoxProps>(({ theme }) => ({
+  const StyledBox = styled(Box)<BoxProps>(({ theme }:any) => ({
     boxShadow: theme.shadows[8],
     padding: "20px",
     cursor: "pointer",

@@ -32,6 +32,8 @@ const GuestGuard = ({ children, fallback }: GuestGuardProps) => {
     return () => {
       clearTimeout(timeoutId); // Cancel the timeout when the component is unmounted
     };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+
   }, []);
 
   if (showAuth) {

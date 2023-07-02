@@ -4,7 +4,6 @@ import SideSection from '@/components/taskDetail/SideSection';
 import ProductDesc from '@/components/taskDetail/ProductDesc';
 import ProductRelated from '@/components/taskDetail/ProductRelated';
 import ChildCard from '@/components/shared/ChildCard';
-import Breadcrumb from '@/layouts/full/shared/breadcrumb/Breadcrumb';
 import { Grid } from '@mui/material';
 import { useTaskQuery } from '@/graphql/generated/schema';
 import { useRouter } from 'next/router';

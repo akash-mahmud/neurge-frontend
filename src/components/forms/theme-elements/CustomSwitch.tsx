@@ -2,7 +2,7 @@ import React from 'react';
 import { styled } from '@mui/material/styles';
 import { Switch } from '@mui/material';
 
-const CustomSwitch = styled((props: any) => <Switch {...props} />)(({ theme }) => ({
+const CustomSwitch = styled((props: any) => <Switch {...props} />)(({ theme }:any) => ({
   '&.MuiSwitch-root': {
     width: '68px',
     height: '49px',

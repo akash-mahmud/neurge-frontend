@@ -14,8 +14,8 @@ type Props = {
 const ThreeColumn = ({ leftChild, middleChild, rightChild }: Props) => {
   const [isLeftSidebarOpen, setLeftSidebarOpen] = useState(false);
   const [isRightSidebarOpen, setRightSidebarOpen] = useState(false);
-  const lgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('lg'));
-  const mdUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('md'));
+  const lgUp = useMediaQuery((theme: any) => theme.breakpoints.up('lg'));
+  const mdUp = useMediaQuery((theme: any) => theme.breakpoints.up('md'));
 
   return (
     <Paper sx={{ display: 'flex', p: 0 }} variant="outlined">

@@ -23,14 +23,14 @@ import Logo from '../../../../layouts/full/shared/logo/Logo';
 import { AppState } from '../../../../store';
 
 const Header = () => {
-  const lgDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('lg'));
-  const lgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('lg'));
+  const lgDown = useMediaQuery((theme: any) => theme.breakpoints.down('lg'));
+  const lgUp = useMediaQuery((theme: any) => theme.breakpoints.up('lg'));
 
   // drawer
   const customizer = useSelector((state: AppState) => state.customizer);
   const dispatch = useDispatch();
 
-  const AppBarStyled = styled(AppBar)(({ theme }) => ({
+  const AppBarStyled = styled(AppBar)(({ theme }:any) => ({
     background: theme.palette.background.paper,
     justifyContent: 'center',
     backdropFilter: 'blur(4px)',
@@ -39,7 +39,7 @@ const Header = () => {
       minHeight: customizer.TopbarHeight,
     },
   }));
-  const ToolbarStyled = styled(Toolbar)(({ theme }) => ({ margin: '0 auto', width: '100%', color: `${theme.palette.text.secondary} !important`, }));
+  const ToolbarStyled = styled(Toolbar)(({ theme }:any) => ({ margin: '0 auto', width: '100%', color: `${theme.palette.text.secondary} !important`, }));
 
   return (
     <AppBarStyled position="sticky" color="default" elevation={8}>

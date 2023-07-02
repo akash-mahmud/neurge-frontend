@@ -1,6 +1,7 @@
+import { AppState } from '@/store';
 import { Card, CardHeader, CardContent, Divider } from '@mui/material';
-import { useSelector } from '../../../store/Store';
-import { AppState } from '../../../store/Store';
+import { useSelector } from 'react-redux';
+
 
 type Props = {
   title: string;

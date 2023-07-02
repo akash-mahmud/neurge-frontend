@@ -1,6 +1,7 @@
 import SimpleBar from "simplebar-react";
 import "simplebar-react/dist/simplebar.min.css";
-import { Box, styled, SxProps, useMediaQuery } from "@mui/material";
+import { Box, styled,  useMediaQuery, } from "@mui/material";
+import { SxProps } from '@mui/system';
 
 const SimpleBarStyle = styled(SimpleBar)(() => ({
   maxHeight: "100%",
@@ -8,7 +9,7 @@ const SimpleBarStyle = styled(SimpleBar)(() => ({
 
 interface PropsType {
   children: React.ReactElement | React.ReactNode;
-  sx: SxProps;
+  sx: any;
 }
 
 const Scrollbar = (props: PropsType) => {

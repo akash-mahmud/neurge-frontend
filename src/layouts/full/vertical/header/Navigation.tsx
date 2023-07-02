@@ -27,7 +27,7 @@ const AppDD = () => {
           aria-haspopup="true"
           sx={{
             bgcolor: anchorEl2 ? 'primary.light' : '',
-            color: anchorEl2 ? 'primary.main' : (theme) => theme.palette.text.secondary,
+            color: anchorEl2 ? 'primary.main' : (theme: { palette: { text: { secondary: any; }; }; }) => theme.palette.text.secondary,
           }}
           onClick={handleClick2}
           endIcon={<IconChevronDown size="15" style={{ marginLeft: '-5px', marginTop: '2px' }} />}
@@ -99,13 +99,13 @@ const AppDD = () => {
           </Grid>
         </Menu>
       </Box>
-      <Button color="inherit" sx={{color: (theme) => theme.palette.text.secondary}} variant="text" href="/apps/chat" component={Link}>
+      <Button color="inherit" sx={{color: (theme: { palette: { text: { secondary: any; }; }; }) => theme.palette.text.secondary}} variant="text" href="/apps/chat" component={Link}>
         Chat
       </Button>
-      <Button color="inherit" sx={{color: (theme) => theme.palette.text.secondary}} variant="text" href="/apps/calendar" component={Link}>
+      <Button color="inherit" sx={{color: (theme: { palette: { text: { secondary: any; }; }; }) => theme.palette.text.secondary}} variant="text" href="/apps/calendar" component={Link}>
         Calendar
       </Button>
-      <Button color="inherit" sx={{color: (theme) => theme.palette.text.secondary}} variant="text" href="/apps/email" component={Link}>
+      <Button color="inherit" sx={{color: (theme: { palette: { text: { secondary: any; }; }; }) => theme.palette.text.secondary}} variant="text" href="/apps/email" component={Link}>
         Email
       </Button>
     </>

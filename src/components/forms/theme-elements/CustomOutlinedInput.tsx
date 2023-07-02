@@ -2,7 +2,7 @@ import React from 'react';
 import { styled } from '@mui/material/styles';
 import { OutlinedInput } from '@mui/material';
 
-const CustomOutlinedInput = styled((props: any) => <OutlinedInput {...props} />)(({ theme }) => ({
+const CustomOutlinedInput = styled((props: any) => <OutlinedInput {...props} />)(({ theme }:any) => ({
   '& .MuiOutlinedInput-input::-webkit-input-placeholder': {
     color: theme.palette.text.secondary,
     opacity: '0.8',

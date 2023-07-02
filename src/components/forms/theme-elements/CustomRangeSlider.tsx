@@ -2,7 +2,7 @@
 import { styled } from '@mui/material/styles';
 import { Slider } from '@mui/material';
 
-const CustomRangeSlider = styled(Slider)(({ theme }) => ({
+const CustomRangeSlider = styled(Slider)(({ theme }:any) => ({
   '& .MuiSlider-rail': {
     height: '9px',
     borderRadius: '9px',

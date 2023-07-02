@@ -1,8 +1,8 @@
 import { Grid } from '@mui/material';
-import PageContainer from '../../../src/components/container/PageContainer';
+import ProductsCard from '@/components/product/ProductsCard';
+import PageContainer from '@/components/container/PageContainer';
 
 
-import FriendCard from '../../../src/components/widgets/cards/FriendCard';
 
 
 
@@ -24,7 +24,7 @@ export default function index() {
       
   
       <Grid item xs={12}>
-        <FriendCard />
+        <ProductsCard />
       </Grid>
     
      

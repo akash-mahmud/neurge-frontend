@@ -2,7 +2,7 @@ import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Radio, { RadioProps } from '@mui/material/Radio';
 
-const BpIcon = styled('span')(({ theme }) => ({
+const BpIcon = styled('span')(({ theme }:any) => ({
   borderRadius: '50%',
   width: 21,
   height: 21,
@@ -27,7 +27,7 @@ const BpIcon = styled('span')(({ theme }) => ({
   },
 }));
 
-const BpCheckedIcon = styled(BpIcon)(({ theme }) => ({
+const BpCheckedIcon = styled(BpIcon)(({ theme }:any) => ({
   boxShadow: 'none',
   '&:before': {
     display: 'block',

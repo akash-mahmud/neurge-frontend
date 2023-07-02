@@ -9,8 +9,6 @@ import ContactsReducer from './apps/contacts/ContactSlice';
 import UserProfileReducer from './apps/userProfile/UserProfileSlice';
 import BlogReducer from './apps/blog/BlogSlice';
 import authSlice from "./slices/auth/authSlice";
-import  commonSlice  from "./slices/common/sidebar";
-import serviceSlice from "./slices/service/serviceSlice";
 import {
   useDispatch as useAppDispatch,
   useSelector as useAppSelector,
@@ -46,8 +44,7 @@ const persistConfig = {
 
   // My reducers
   auth: authSlice,
-  common: commonSlice,
-  service: serviceSlice,
+
  })
  const persistedAuthReducer = persistReducer(persistConfig, rootReducer);
 

@@ -1,7 +1,7 @@
 import { styled } from '@mui/material/styles';
 import { Button } from '@mui/material';
 
-const CustomDisabledButton =  styled((Button))(({ theme })  => ({
+const CustomDisabledButton =  styled((Button))(({ theme }:any)  => ({
   backgroundColor: theme.palette.grey[100]
 }));
 

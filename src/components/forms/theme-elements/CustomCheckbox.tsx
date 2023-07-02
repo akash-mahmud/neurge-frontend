@@ -2,7 +2,7 @@ import * as React from 'react';
 import { styled } from '@mui/material';
 import Checkbox, { CheckboxProps } from '@mui/material/Checkbox';
 
-const BpIcon = styled('span')(({ theme }) => ({
+const BpIcon = styled('span')(({ theme }:any) => ({
   borderRadius: 3,
   width: 19,
   height: 19,

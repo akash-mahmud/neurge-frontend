@@ -1,7 +1,7 @@
 import { styled } from '@mui/material/styles';
 import { Slider } from '@mui/material';
 
-const CustomSlider = styled(Slider)(({ theme }) => ({
+const CustomSlider = styled(Slider)(({ theme }:any) => ({
   '& .MuiSlider-rail': {
     height: '9px',
     borderRadius: '9px',

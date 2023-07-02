@@ -1,7 +1,7 @@
 import { styled } from '@mui/material/styles';
 import { Button } from '@mui/material';
 
-const CustomOutlinedButton = styled(Button)(({ theme }) => ({
+const CustomOutlinedButton = styled(Button)(({ theme }:any) => ({
   border: `1px solid ${theme.palette.grey[100]}`,
   color: theme.palette.text.primary,
 

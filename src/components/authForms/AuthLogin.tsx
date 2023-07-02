@@ -9,9 +9,7 @@ import {
 } from "@mui/material";
 import Link from "next/link";
 import { loginType } from "../../../src/types/auth/auth";
-import CustomCheckbox from "../../../src/components/forms/theme-elements/CustomCheckbox";
-import CustomTextField from "../../../src/components/forms/theme-elements/CustomTextField";
-import CustomFormLabel from "../../../src/components/forms/theme-elements/CustomFormLabel";
+
 import { Spin, notification } from 'antd';
 
 import { useState } from "react";
@@ -19,12 +17,15 @@ import { LoginMutationVariables } from "@/graphql/generated/schema";
 import { useDispatch, useSelector } from "@/store";
 import { login } from "@/store/slices/auth/authSlice";
 import { useRouter } from "next/router";
+import CustomCheckbox from "../forms/theme-elements/CustomCheckbox";
+import CustomFormLabel from "../forms/theme-elements/CustomFormLabel";
+import CustomTextField from "../forms/theme-elements/CustomTextField";
 
 const AuthLogin = ({ title, subtitle, subtext }: loginType) => {
   const [input, setinput] = useState<LoginMutationVariables>({
     email: '',
     password: ''
-  })
+  }) 
   const dispatch = useDispatch()
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setinput({
