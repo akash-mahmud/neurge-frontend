@@ -123,7 +123,7 @@ const AuthLogin = ({ title, subtitle, subtext }: loginType) => {
             Sign In
           </Button>
         </Box>
-        {subtitle}
+        {/* {subtitle} */}
       </Spin>
 
     </>
