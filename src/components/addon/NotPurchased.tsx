@@ -5,6 +5,7 @@ import { Stack, Typography,  Box, Button, Chip, CardContent,  Grid } from '@mui/
 import BlankCard from '@/components/shared/BlankCard';
 import {  useGetUserNotPurchasedAddonsQuery } from '@/graphql/generated/schema';
 import Image from 'next/image'
+import { getImage } from '@/utils/getimage';
 
 
 const NotPurchased = () => {
@@ -27,7 +28,7 @@ const NotPurchased = () => {
               <Box display={'flex'} position={'relative'} >
 
                 <Typography >
-                  <Image src={addon.img}  alt="img" width={252} height={276}/>
+                  <Image src={getImage(addon.img) as string}  alt="img" width={252} height={276}/>
                 </Typography>
                 <Box position={'absolute'} right={6} top={6}>
 

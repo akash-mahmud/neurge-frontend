@@ -35,16 +35,46 @@ const AuthLogin = ({ title, subtitle, subtext }: loginType) => {
   const [loading, setloading] = useState(false)
   const { isAuthenticated, error, isError, user } = useSelector((store) => store.auth)
   const router = useRouter()
+  // const onSubmit = async () => {
+  //   setloading(true)
+  //   try {
+  //     const result = await dispatch(login(input))
+  //     notification.success({
+  //       message: 'Logged in'
+  //     })
+  //     router.push('/')
+
+  //   } catch (error: any) {
+  //     notification.error({
+  //       message: error.message
+  //     })
+  //   }
+
+  //   setloading(false)
+
+  // }
   const onSubmit = async () => {
     setloading(true)
     try {
       const result = await dispatch(login(input))
-      notification.success({
-        message: 'Logged in'
-      })
-      router.push('/')
+      console.log(result);
+      // @ts-ignore
+      if(result?.payload?.loginAdmin?.isAuthenticated){
+        notification.success({
+          message: 'Logged in'
+        })
+        router.push('/')
+      }else{
+        console.log(result.payload);
+        
+notification.error({
+  message:result.payload as string
+})
+      }
+ 
 
     } catch (error: any) {
+      
       notification.error({
         message: error.message
       })

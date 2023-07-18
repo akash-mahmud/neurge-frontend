@@ -16,6 +16,7 @@ import { Stack } from '@mui/system';
 import { useDispatch, useSelector } from '@/store';
 import { useRouter } from 'next/router';
 import { logout } from '@/store/slices/auth/authSlice';
+import { getImage } from '@/utils/getimage';
 
 
 const Profile = () => {
@@ -50,7 +51,7 @@ const logoutUser = () => {
         onClick={handleClick2}
       >
         <Avatar
-          src={user?.avater?user?.avater:"/images/profile/user-1.jpg"}
+          src={user?.avater?getImage(user?.avater):"/images/profile/user-1.jpg"}
           alt={'ProfileImg'}
           sx={{
             width: 35,

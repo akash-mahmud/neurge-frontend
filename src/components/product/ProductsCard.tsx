@@ -6,6 +6,7 @@ import { IconCurrencyDollar } from '@tabler/icons-react';
 import { useGetUserProductsQuery } from '@/graphql/generated/schema';
 import { useRouter } from 'next/router';
 import BlankCard from '../shared/BlankCard';
+import { getImage } from '@/utils/getimage';
 
 
 
@@ -26,7 +27,7 @@ const ProductsCard = () => {
             <Box display={'flex'} position={'relative'} >
 
               <Typography component={Link} href={`/?category=${product.category?.id}`}>
-              <img src={product.image} alt="img" width="100%" />
+              <img src={getImage(product.image)} alt="img" width="100%" />
             </Typography>
             <Box position={'absolute'} right={6} top={6}>
 

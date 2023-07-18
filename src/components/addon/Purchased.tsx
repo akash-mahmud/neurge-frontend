@@ -8,6 +8,7 @@ import { useGetUserAddonsQuery } from '@/graphql/generated/schema';
 import router, { useRouter } from 'next/router';
 import NotPurchased from './NotPurchased';
 import Image from 'next/image'
+import { getImage } from '@/utils/getimage';
 
 
 const PaymentGateways = () => {
@@ -31,7 +32,7 @@ const router = useRouter()
               <Box display={'flex'} position={'relative'} >
 
                 <Typography >
-                <Image src={addon.img}  alt="img" width={252} height={276}/>
+                <Image src={getImage(addon.img) as string}  alt="img" width={252} height={276}/>
                 </Typography>
                 <Box position={'absolute'} right={6} top={6}>
 

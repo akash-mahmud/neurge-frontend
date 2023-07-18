@@ -1,27 +1,44 @@
 import {  ApolloClient, InMemoryCache } from '@apollo/client';
-import { HttpLink } from '@apollo/client/link/http';
+import { createUploadLink } from 'apollo-upload-client';
+import fetch from 'cross-fetch';
 
 let token =''
 if (typeof window !== 'undefined')  {
-  const authState = JSON.parse(JSON.parse(localStorage.getItem('persist:root') as string)?.auth)
-  console.log(authState);
+  let authState 
+  
+  try {
+    authState = localStorage.getItem('persist:root')? JSON.parse(JSON.parse(localStorage.getItem('persist:root') as string)?.auth):''
+  } catch (error) {
+    
+  }
   
   if(authState?.isAuthenticated){
-    token = 'Bearer'+' '+authState.token
+    token = 'Bearer'+' '+authState?.token
 
   }
 
 };
 
+/**
+ * @param httpLink  from @apollo/client should be replace with
+ * @param createUploadLink from apollo-upload-client in every place where we are using httpLink
+ */
+
+
+const uploadLink = createUploadLink({
+  uri: 'http://localhost:8000/graphql',
+  headers: {
+    Authorization: token,
+    'Apollo-Require-Preflight': 'true'
+
+  },
+  fetch,
+
+});
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
-  link: new HttpLink({
-    uri: 'http://localhost:8000/graphql',
-    headers: {
-      Authorization: token,
-    },
-  }),
+  link: uploadLink
 
 });
 

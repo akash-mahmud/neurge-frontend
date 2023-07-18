@@ -5,18 +5,22 @@ import PageContainer from "../components/container/PageContainer";
 import TopCards from "../components/home/Tasks";
 import { useCategoriesQuery } from "@/graphql/generated/schema";
 import { useRouter } from "next/router";
+import { Spin } from "antd";
 
 
 const Modern = () => {
   const {data:categories , error, loading} = useCategoriesQuery()
   const router = useRouter()
   return (
+
+
     <PageContainer>
       <Box>
         <Grid container spacing={3}>
           {/* column */}
           <Grid item xs={12} lg={12}>
-          
+          <Spin spinning={loading}>
+
           <Chip style={{
                     margin:5,
                     cursor:'pointer'
@@ -53,6 +57,7 @@ const Modern = () => {
                   
               ))
             }  
+          </Spin>
           </Grid>
           <Grid item xs={12} lg={12}>
             <TopCards />
