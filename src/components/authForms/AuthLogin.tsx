@@ -57,18 +57,24 @@ const AuthLogin = ({ title, subtitle, subtext }: loginType) => {
     setloading(true)
     try {
       const result = await dispatch(login(input))
-      console.log(result);
+      // console.log(result);
       // @ts-ignore
-      if(result?.payload?.loginAdmin?.isAuthenticated){
+      
+      if(result?.payload?.login?.isAuthenticated){
         notification.success({
           message: 'Logged in'
         })
         router.push('/')
-      }else{
-        console.log(result.payload);
+      }
+      else{
+        // console.log(result.payload.message as string);
         
+// notification.error({
+//   message:result.payload as string
+// })
 notification.error({
-  message:result.payload as string
+  // @ts-ignore
+  message:result?.payload?.message as string
 })
       }
  

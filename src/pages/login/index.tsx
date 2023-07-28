@@ -8,12 +8,50 @@ import AuthLogin from '@/components/authForms/AuthLogin';
 const Login = () => (
   <PageContainer>
     <Grid container spacing={0} justifyContent="center" sx={{ height: '100vh' }}>
-      <Grid
+     
+           <Grid
         item
         xs={12}
         sm={12}
         lg={7}
-        xl={8}
+        xl={6}
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+      >
+        <Box p={4}>
+          <AuthLogin
+            title="Sign In"
+            subtext={
+              <Typography variant="subtitle1" color="textSecondary" mb={1}>
+Welcome in Neurge! Please enter your details.              </Typography>
+            }
+            subtitle={
+              <Stack direction="row" spacing={1} mt={3}>
+                <Typography color="textSecondary" variant="h6" fontWeight="500">
+                  New to Modernize?
+                </Typography>
+                <Typography
+                  component={Link}
+                  href="/auth/auth1/register"
+                  fontWeight="500"
+                  sx={{
+                    textDecoration: 'none',
+                    color: 'primary.main',
+                  }}
+                >
+                  Create an account
+                </Typography>
+              </Stack>
+            }
+          />
+        </Box>
+      </Grid> <Grid
+        item
+        xs={12}
+        sm={12}
+        lg={5}
+        xl={6}
         sx={{
           position: 'relative',
           '&:before': {
@@ -54,45 +92,7 @@ const Login = () => (
           </Box>
         </Box>
       </Grid>
-      <Grid
-        item
-        xs={12}
-        sm={12}
-        lg={5}
-        xl={4}
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-      >
-        <Box p={4}>
-          <AuthLogin
-            title="Welcome to Modernize"
-            subtext={
-              <Typography variant="subtitle1" color="textSecondary" mb={1}>
-                Your Admin Dashboard
-              </Typography>
-            }
-            subtitle={
-              <Stack direction="row" spacing={1} mt={3}>
-                <Typography color="textSecondary" variant="h6" fontWeight="500">
-                  New to Modernize?
-                </Typography>
-                <Typography
-                  component={Link}
-                  href="/auth/auth1/register"
-                  fontWeight="500"
-                  sx={{
-                    textDecoration: 'none',
-                    color: 'primary.main',
-                  }}
-                >
-                  Create an account
-                </Typography>
-              </Stack>
-            }
-          />
-        </Box>
-      </Grid>
+
     </Grid>
   </PageContainer>
 );

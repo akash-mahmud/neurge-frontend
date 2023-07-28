@@ -48,7 +48,7 @@ const Modern = () => {
                   margin:5,
                   cursor:'pointer'
                 }}
-                
+                color={router?.query?.category === category?.id ? 'primary':'default'}
                 variant={ "filled"}
                 // size="small"
                 label={category.name}
@@ -59,7 +59,10 @@ const Modern = () => {
             }  
           </Spin>
           </Grid>
-          <Grid item xs={12} lg={12}>
+          <Grid paddingRight={'24px'} paddingBottom={'24px'} item xs={12} lg={12} style={{
+            backgroundColor:"#F9FAFB",
+            
+          }}>
             <TopCards />
           </Grid>
 

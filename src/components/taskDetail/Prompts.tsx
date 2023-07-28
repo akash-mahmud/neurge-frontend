@@ -3,6 +3,7 @@ import { CardContent, Typography, Grid, IconButton, Divider, Avatar, Box, Button
 import { useTheme } from '@mui/material/styles';
 import { Stack } from '@mui/system';
 import ReactMarkdown from 'react-markdown' 
+import copy from 'copy-to-clipboard';
 
 import {
   IconBrandFacebook,
@@ -13,6 +14,7 @@ import {
 import { CopyAll } from '@mui/icons-material';
 import { Prompt } from '@/graphql/generated/schema';
 import BlankCard from '../shared/BlankCard';
+import { notification } from 'antd';
 
 const SocialIcons = [
   {
@@ -55,7 +57,35 @@ const Prompts = ({prompts}:{
   prompts:{ __typename?: "Prompt" | undefined; description: string; id: string; name: string; }[]| undefined|null
 }) => {
   const theme = useTheme();
+  const formatStringWithBrackets = (text:string) => {
+    // Use regex to find sentences starting with square brackets []
+    const regex = /\[.*?\]/g;
+    const matches = text.match(regex);
+    const parts = text.split(regex);
 
+    // If no matches found, return the original text
+    if (!matches) {
+      return text;
+    }
+  
+    // Replace square brackets with <span> tags
+  //   const formattedText = text.replace(regex, (match) => `<span style=color:'#6CE9A6'
+  //   >${match}</span>`);
+  // console.log(formattedText);
+  return (
+    <span>
+      {parts.map((part:any, index:any) => (
+        <React.Fragment key={index}>
+          {index > 0 && <span  className="green-bigger" style={{
+            color:'#6CE9A6',
+          }}>{matches[index - 1]}</span>}
+          {part}
+        </React.Fragment>
+      ))}
+    </span>
+  );
+    // return <div dangerouslySetInnerHTML={{ __html: formattedText }} />;
+  };
   return (
     <Grid container spacing={3}>
       {prompts?.map((prompt, index) => (
@@ -76,7 +106,15 @@ const Prompts = ({prompts}:{
 <Typography variant="h5" color={"#fff"}>{prompt.name}</Typography>
 
 </Grid>
-<Grid item><Button><CopyAll/> Copy</Button></Grid>
+<Grid item><Button onClick={()=> { 
+  copy(prompt.description);
+  notification.success({
+    message:'Prompt copied to clipboard',
+    placement:'top'
+  })
+
+
+}}><CopyAll/> Copy</Button></Grid>
              </Grid>
             </Box>
 
@@ -85,7 +123,15 @@ const Prompts = ({prompts}:{
             }}>
               <Stack direction={'column'} gap={2} >
                 <Box  color={'#fff'}>
-                <ReactMarkdown>{prompt.description}</ReactMarkdown>
+                  <div style={{
+                                fontSize:'1rem',
+                                color:'#d0d5dd'
+
+                  }}>
+                  {formatStringWithBrackets(prompt.description)}
+
+                  </div>
+                {/* <ReactMarkdown>{formatStringWithBrackets(prompt.description)}</ReactMarkdown> */}
                 </Box>
               </Stack>
             </CardContent>

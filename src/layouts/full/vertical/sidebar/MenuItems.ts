@@ -15,62 +15,18 @@ interface MenuitemsType {
   external?: boolean;
 }
 import {
-  IconAward,
-  IconBoxMultiple,
-  IconPoint,
-  IconAlertCircle,
-  IconNotes,
-  IconCalendar,
-  IconMail,
-  IconTicket,
-  IconEdit,
-  IconGitMerge,
-  IconCurrencyDollar,
-  IconApps,
-  IconFileDescription,
-  IconFileDots,
-  IconFiles,
-  IconBan,
-  IconStar,
-  IconMoodSmile,
-  IconBorderAll,
-  IconBorderHorizontal,
-  IconBorderInner,
-  IconBorderVertical,
-  IconBorderTop,
-  IconUserCircle,
-  IconPackage,
-  IconMessage2,
-  IconBasket,
-  IconChartLine,
-  IconChartArcs,
-  IconChartCandle,
-  IconChartArea,
-  IconChartDots,
-  IconChartDonut3,
-  IconChartRadar,
-  IconLogin,
-  IconUserPlus,
-  IconRotate,
-  IconBox,
+
   IconShoppingCart,
   IconAperture,
-  IconLayout,
-  IconSettings,
-  IconHelp,
-  IconZoomCode,
-  IconBoxAlignBottom,
-  IconBoxAlignLeft,
-  IconBorderStyle2,
-  IconAppWindow
+
 } from '@tabler/icons-react';
-import { AddOutlined } from '@mui/icons-material';
+import { AddOutlined, Help, Settings } from '@mui/icons-material';
 
 const Menuitems: MenuitemsType[] = [
-  {
-    navlabel: true,
-    subheader: 'Home',
-  },
+  // {
+  //   navlabel: true,
+  //   subheader: 'Home',
+  // },
 
   {
     id: uniqueId(),
@@ -80,19 +36,23 @@ const Menuitems: MenuitemsType[] = [
     // chip: 'New',
     chipColor: 'secondary',
   },
-  {
-    navlabel: true,
-    subheader: 'Product',
-  },
+  // {
+  //   navlabel: true,
+  //   subheader: 'Product',
+  // },
   {
     id: uniqueId(),
-    title: 'Packs',
+    title: 'Prompt Packs',
+    chip: '13',
+    chipColor: 'secondary',
     icon: IconShoppingCart,
     href: '/products',
   },
   {
     id: uniqueId(),
     title: 'Addons',
+    chip: '7',
+    chipColor: 'secondary',
     icon: AddOutlined,
     href: '/addons',
   },
@@ -107,74 +67,8 @@ const Menuitems: MenuitemsType[] = [
 
 
 
-  
-
-
-
-
-
-
-  //These lines commented for examples
-  // {
-  //   id: uniqueId(),
-  //   title: 'Maintenance',
-  //   icon: IconSettings,
-  //   href: '/auth/maintenance',
-  // },
- 
-  // {
-  //   navlabel: true,
-  //   subheader: 'Other',
-  // },
-  // {
-  //   id: uniqueId(),
-  //   title: 'Menu Level',
-  //   icon: IconBoxMultiple,
-  //   href: '/menulevel/',
-  //   children: [
-  //     {
-  //       id: uniqueId(),
-  //       title: 'Level 1',
-  //       icon: IconPoint,
-  //       href: '/l1',
-  //     },
-  //     {
-  //       id: uniqueId(),
-  //       title: 'Level 1.1',
-  //       icon: IconPoint,
-  //       href: '/l1.1',
-  //       children: [
-  //         {
-  //           id: uniqueId(),
-  //           title: 'Level 2',
-  //           icon: IconPoint,
-  //           href: '/l2',
-  //         },
-  //         {
-  //           id: uniqueId(),
-  //           title: 'Level 2.1',
-  //           icon: IconPoint,
-  //           href: '/l2.1',
-  //           children: [
-  //             {
-  //               id: uniqueId(),
-  //               title: 'Level 3',
-  //               icon: IconPoint,
-  //               href: '/l3',
-  //             },
-  //             {
-  //               id: uniqueId(),
-  //               title: 'Level 3.1',
-  //               icon: IconPoint,
-  //               href: '/l3.1',
-  //             },
-  //           ],
-  //         },
-  //       ],
-  //     },
-  //   ],
-  // },
-
 ];
+
+
 
 export default Menuitems;

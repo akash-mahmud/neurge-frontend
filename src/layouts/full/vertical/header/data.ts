@@ -65,7 +65,18 @@ const profile: ProfileType[] = [
     subtitle: "Account Settings",
     icon: "/images/svgs/icon-account.svg",
   },
-
+  {
+    href: "/seeting",
+    title: "Setting",
+    subtitle: "External Settings",
+    icon: "/images/svgs/icon-account.svg",
+  },
+  {
+    href: "/apps/user-profile/profile",
+    title: "Get Help",
+    subtitle: "Ask us for help",
+    icon: "/images/svgs/icon-account.svg",
+  },
 ];
 
 // apps dropdown

@@ -82,8 +82,11 @@ const ProductDetail = ({ task }: {
           {/* ------------------------------------------- */}
           {/* Title and description */}
           {/* ------------------------------------------- */}
-          <Typography fontWeight="600" variant="h4" mt={1}>
-            {task?.task?.imoji} {task?.task?.name}
+          <Typography fontWeight="600" variant="h4" fontSize={'2.25rem'} lineHeight={'1.2'}  mt={1}>
+            {task?.task?.imoji}
+          </Typography>
+          <Typography fontWeight="600" fontSize={'2.25rem'} lineHeight={'1.2'} variant="h4" mt={1}>
+{task?.task?.name}
           </Typography>
           <Typography
             variant="subtitle2"

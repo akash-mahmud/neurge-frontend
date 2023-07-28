@@ -16,6 +16,7 @@ export type Scalars = {
   Int: { input: number; output: number; }
   Float: { input: number; output: number; }
   DateTime: { input: any; output: any; }
+  Upload: { input: any; output: any; }
 };
 
 export type Addon = {
@@ -1771,11 +1772,11 @@ export type IntWithAggregatesFilter = {
 
 export type LoginResponsce = {
   __typename?: 'LoginResponsce';
-  accessToken: Scalars['String']['output'];
+  accessToken?: Maybe<Scalars['String']['output']>;
   isAuthenticated: Scalars['Boolean']['output'];
   message: Scalars['String']['output'];
   success: Scalars['Boolean']['output'];
-  user: User;
+  user?: Maybe<User>;
 };
 
 export type Mutation = {
@@ -1817,7 +1818,9 @@ export type Mutation = {
   deleteOneTip?: Maybe<Tip>;
   deleteOneUser?: Maybe<User>;
   login?: Maybe<LoginResponsce>;
+  loginAdmin?: Maybe<LoginResponsce>;
   register?: Maybe<DefaultResponsce>;
+  registerByAdmin?: Maybe<DefaultResponsce>;
   updateManyAddon: AffectedRowsOutput;
   updateManyAddonBlogCategory: AffectedRowsOutput;
   updateManyBlog: AffectedRowsOutput;
@@ -1836,6 +1839,7 @@ export type Mutation = {
   updateOneTask?: Maybe<Task>;
   updateOneTip?: Maybe<Tip>;
   updateOneUser?: Maybe<User>;
+  uploadFile?: Maybe<FileUploadResponsce>;
   upsertOneAddon: Addon;
   upsertOneAddonBlogCategory: AddonBlogCategory;
   upsertOneBlog: Blog;
@@ -1845,6 +1849,7 @@ export type Mutation = {
   upsertOneTask: Task;
   upsertOneTip: Tip;
   upsertOneUser: User;
+  userUpdateByAdmin?: Maybe<DefaultResponsce>;
 };
 
 
@@ -2043,8 +2048,19 @@ export type MutationLoginArgs = {
 };
 
 
+export type MutationLoginAdminArgs = {
+  email: Scalars['String']['input'];
+  password: Scalars['String']['input'];
+};
+
+
 export type MutationRegisterArgs = {
   input: CreateOneUserArgsCustom;
+};
+
+
+export type MutationRegisterByAdminArgs = {
+  data: UserCreateInput;
 };
 
 
@@ -2156,6 +2172,11 @@ export type MutationUpdateOneUserArgs = {
 };
 
 
+export type MutationUploadFileArgs = {
+  file: Scalars['Upload']['input'];
+};
+
+
 export type MutationUpsertOneAddonArgs = {
   create: AddonCreateInput;
   update: AddonUpdateInput;
@@ -2215,6 +2236,15 @@ export type MutationUpsertOneTipArgs = {
 export type MutationUpsertOneUserArgs = {
   create: UserCreateInput;
   update: UserUpdateInput;
+  where: UserWhereUniqueInput;
+};
+
+
+export type MutationUserUpdateByAdminArgs = {
+  data: UserUpdateInput;
+  newPass?: InputMaybe<Scalars['String']['input']>;
+  oldPassword?: InputMaybe<Scalars['String']['input']>;
+  updatePass?: InputMaybe<Scalars['Boolean']['input']>;
   where: UserWhereUniqueInput;
 };
 
@@ -4975,6 +5005,13 @@ export type DefaultResponsce = {
   message: Scalars['String']['output'];
 };
 
+export type FileUploadResponsce = {
+  __typename?: 'fileUploadResponsce';
+  file: Scalars['String']['output'];
+  message: Scalars['String']['output'];
+  success: Scalars['Boolean']['output'];
+};
+
 export type GetUserAddonsQueryVariables = Exact<{
   where?: InputMaybe<AddonWhereInput>;
   orderBy?: InputMaybe<Array<AddonOrderByWithRelationInput> | AddonOrderByWithRelationInput>;
@@ -5045,15 +5082,18 @@ export type GetUserProductsQuery = { __typename?: 'Query', getUserProducts: Arra
 export type TasksWithoutrelationalDataQueryVariables = Exact<{
   where?: InputMaybe<TaskWhereInput>;
   orderBy?: InputMaybe<Array<TaskOrderByWithRelationInput> | TaskOrderByWithRelationInput>;
+  cursor?: InputMaybe<TaskWhereUniqueInput>;
   take?: InputMaybe<Scalars['Int']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  distinct?: InputMaybe<Array<TaskScalarFieldEnum> | TaskScalarFieldEnum>;
 }>;
 
 
-export type TasksWithoutrelationalDataQuery = { __typename?: 'Query', getUserTasks: Array<{ __typename?: 'Task', tags: Array<string>, slug: string, name: string, imoji: string, id: string }> };
+export type TasksWithoutrelationalDataQuery = { __typename?: 'Query', getUserTasks: Array<{ __typename?: 'Task', tags: Array<string>, slug: string, name: string, imoji: string, id: string, description: string }> };
 
 export type AggregateTaskQueryVariables = Exact<{
   where?: InputMaybe<TaskWhereInput>;
-  tasksWhere2?: InputMaybe<TaskWhereInput>;
+  cursor?: InputMaybe<TaskWhereUniqueInput>;
 }>;
 
 
@@ -5079,7 +5119,7 @@ export type LoginMutationVariables = Exact<{
 }>;
 
 
-export type LoginMutation = { __typename?: 'Mutation', login?: { __typename?: 'LoginResponsce', accessToken: string, isAuthenticated: boolean, message: string, success: boolean, user: { __typename?: 'User', avater?: string | null, email: string, id: string, name: string, password: string, role: UserRole } } | null };
+export type LoginMutation = { __typename?: 'Mutation', login?: { __typename?: 'LoginResponsce', accessToken?: string | null, isAuthenticated: boolean, message: string, success: boolean, user?: { __typename?: 'User', avater?: string | null, email: string, id: string, name: string, password: string, role: UserRole } | null } | null };
 
 
 export const GetUserAddonsDocument = gql`
@@ -5413,13 +5453,21 @@ export type GetUserProductsQueryHookResult = ReturnType<typeof useGetUserProduct
 export type GetUserProductsLazyQueryHookResult = ReturnType<typeof useGetUserProductsLazyQuery>;
 export type GetUserProductsQueryResult = Apollo.QueryResult<GetUserProductsQuery, GetUserProductsQueryVariables>;
 export const TasksWithoutrelationalDataDocument = gql`
-    query tasksWithoutrelationalData($where: TaskWhereInput, $orderBy: [TaskOrderByWithRelationInput!], $take: Int) {
-  getUserTasks(where: $where, orderBy: $orderBy, take: $take) {
+    query tasksWithoutrelationalData($where: TaskWhereInput, $orderBy: [TaskOrderByWithRelationInput!], $cursor: TaskWhereUniqueInput, $take: Int, $skip: Int, $distinct: [TaskScalarFieldEnum!]) {
+  getUserTasks(
+    where: $where
+    orderBy: $orderBy
+    cursor: $cursor
+    take: $take
+    skip: $skip
+    distinct: $distinct
+  ) {
     tags
     slug
     name
     imoji
     id
+    description
   }
 }
     `;
@@ -5438,7 +5486,10 @@ export const TasksWithoutrelationalDataDocument = gql`
  *   variables: {
  *      where: // value for 'where'
  *      orderBy: // value for 'orderBy'
+ *      cursor: // value for 'cursor'
  *      take: // value for 'take'
+ *      skip: // value for 'skip'
+ *      distinct: // value for 'distinct'
  *   },
  * });
  */
@@ -5454,8 +5505,8 @@ export type TasksWithoutrelationalDataQueryHookResult = ReturnType<typeof useTas
 export type TasksWithoutrelationalDataLazyQueryHookResult = ReturnType<typeof useTasksWithoutrelationalDataLazyQuery>;
 export type TasksWithoutrelationalDataQueryResult = Apollo.QueryResult<TasksWithoutrelationalDataQuery, TasksWithoutrelationalDataQueryVariables>;
 export const AggregateTaskDocument = gql`
-    query AggregateTask($where: TaskWhereInput, $tasksWhere2: TaskWhereInput) {
-  aggregateTask(where: $where) {
+    query AggregateTask($where: TaskWhereInput, $cursor: TaskWhereUniqueInput) {
+  aggregateTask(where: $where, cursor: $cursor) {
     _count {
       _all
     }
@@ -5476,7 +5527,7 @@ export const AggregateTaskDocument = gql`
  * const { data, loading, error } = useAggregateTaskQuery({
  *   variables: {
  *      where: // value for 'where'
- *      tasksWhere2: // value for 'tasksWhere2'
+ *      cursor: // value for 'cursor'
  *   },
  * });
  */

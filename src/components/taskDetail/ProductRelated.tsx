@@ -14,6 +14,8 @@ import { ProductType } from "../../types/apps/eCommerce";
 import { useTasksWithoutrelationalDataQuery } from "@/graphql/generated/schema";
 import { SortOrder } from "@/graphql/generated/schema";
 import { useRouter } from "next/router";
+import CardSkeleton from "../home/TaskSkeleton";
+import TextTruncate from "react-text-truncate";
 
 const ProductRelated = ({ categoryId }: { categoryId: string | undefined }) => {
   const dispatch = useDispatch();
@@ -36,7 +38,7 @@ not:{
           updatedAt: SortOrder.Desc
         }
       ],
-      take: 4
+      take: 3
     }
   })
   // Get Product
@@ -67,61 +69,94 @@ not:{
   }, []);
 
   return (
-    <Box>
-      <Typography variant="h4" mb={2} mt={5}>
+    <Box style={{
+      backgroundColor:'#F9FAFB',
+      padding:'24px'
+    }}>
+
+      <Typography variant="h4" mb={2} mt={5} >
         Related Tasks
       </Typography>
+      Discover related prompts to expand your productivity. Seamlessly connecting with ChatGPT for endless conversation possibilities.
       <Grid container spacing={3} mt={3}>
-        {data?.getUserTasks?.map((task, i) => (
-          <Grid item xs={12} sm={4} lg={3} key={task.id}>
-            <Link href={`/task/${task.id}`}>
-              <Box bgcolor={
-                'primary' + ".light"}
+      {
+          !loading ? <>
+            {data?.getUserTasks?.map((task, i) => (
+              <Grid item xs={12} sm={3} lg={4} key={task.id} >
+                <Link href={`/task/${task.id}`}>
+                  <Box height={280}
+                    bgcolor={"#fff"}
 
-                textAlign="center">
-                <CardContent>
-                  {/* <Image src={topcard.icon} alt={"topcard.icon"} width="50" /> */}
-                  {/* <Typography
-                color={topcard.bgcolor + ".main"}
-                mt={1}
-                variant="h1"
-                fontWeight={600}
-              >
-                {topcard.imoji}
-              </Typography> */}
-                  <Typography align="left"
-                    // color={topcard.bgcolor + ".main"}
-                    mt={1}
-                    variant="subtitle1"
-                    fontWeight={600}
-                  >
-                    {task.imoji} {task.name}
-                  </Typography>
-                  <Grid display={'flex'} style={{
-                    margin: 5
-                  }} justifyContent={'flex-start'} item xs={12} sm={12} lg={12} key={i}>
-                    {
-                      task.tags.map((tag , index) => (
+                    textAlign="center">
+                    <CardContent style={{
+                      padding: "1.5rem 1.5rem 1.75rem"
+                    }}>
 
-                        <Chip key={index} style={{
-                          marginRight: 5
-                        }}
-                          // color={item?.chipColor}
-                          variant={"filled"}
-                          size="small"
-                          label={tag}
+                      <Typography lineHeight={'unset'} align="left" fontSize={'2.2rem'}
+                        mt={1}
+                        variant="subtitle1"
+                        fontWeight={600}
+                      >
+                        {task.imoji}
+                      </Typography>
+                      <Typography align="left"
+                        color={'#000'}
+                        fontSize={'1.25rem'}
+                        mt={1}
+                        variant="subtitle1"
+                        fontWeight={600}
+                      >
+                        {task.name}
+                      </Typography>
+                      <Typography lineHeight={'1.5'} fontSize={'1rem'} align="left"
+                        color={'#475467'}
+                        mt={1}
+                        variant="body2"
+                        fontWeight={400}
+                      >
+                        <TextTruncate
+                          line={3}
+                          element="p"
+                          truncateText="…"
+                          text={task.description}
                         />
-                      ))
-                    }
-                  </Grid>
+                      </Typography>
 
-                </CardContent>
-              </Box>
-            </Link>
+                      <Grid display={'flex'} style={{
+                        margin: 5
+                      }} justifyContent={'flex-start'} item xs={12} sm={12} lg={12} key={i}>
+                        {
+                          task.tags.map((tag, index) => (
 
-          </Grid>
-        ))}
+                            <Chip key={index} style={{
+                              marginRight: 5
+                            }}
+                              variant={"filled"}
+                              size="small"
+                              label={tag}
+                            />
+                          ))
+                        }
+                      </Grid>
+
+                    </CardContent>
+                  </Box>
+                </Link>
+
+              </Grid>
+            ))}
+          </> : <>
+            {[...Array(3)].map((_, index) => (
+              <CardSkeleton key={index} />
+            ))}
+
+          </>
+        }
+
+   
       </Grid>
+
+
     </Box>
   );
 };

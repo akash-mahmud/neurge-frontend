@@ -22,12 +22,15 @@ export const Profile = () => {
 
   }
   return (
+    <>
+    
     <Box
       display={'flex'}
       alignItems="center"
       gap={2}
       sx={{ m: 3, p: 2, bgcolor: `${'secondary.light'}` }}
     >
+      
       {!hideMenu ? (
         <>
           <Avatar alt="Remy Sharp" src={`${user?.avater? getImage(user.avater): '/images/profile/user-1.jpg'}`} />
@@ -53,5 +56,6 @@ export const Profile = () => {
         ''
       )}
     </Box>
+    </>
   );
 };

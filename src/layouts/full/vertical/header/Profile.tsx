@@ -85,16 +85,7 @@ const logoutUser = () => {
 {user?.name}
             </Typography>
            
-            <Typography
-              variant="subtitle2"
-              color="textSecondary"
-              display="flex"
-              alignItems="center"
-              gap={1}
-            >
-              <IconMail width={15} height={15} />
-{user?.email}
-            </Typography>
+
           </Box>
         </Stack>
         <Divider />

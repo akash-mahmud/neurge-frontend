@@ -1,15 +1,16 @@
 import React from "react";
 import { Grid, Typography, Box, Breadcrumbs, Theme } from "@mui/material";
 import NextLink from "next/link";
-
+import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
 import breadcrumbImg from "public/images/breadcrumb/ChatBc.png";
 import { IconCircle } from "@tabler/icons-react";
 import Image from "next/image";
+import { ArrowForward, ArrowForwardOutlined, ForkRight } from "@mui/icons-material";
 
 interface BreadCrumbType {
   subtitle?: string;
   items?: any[];
-  title: string;
+  title?: string;
   children?: JSX.Element;
 }
 
@@ -38,11 +39,12 @@ const Breadcrumb = ({ subtitle, items, title, children }: BreadCrumbType) => (
       </Typography>
       <Breadcrumbs
         separator={
-          <IconCircle
-            size="5"
-            fill="textSecondary"
-            fillOpacity={"0.6"}
-            style={{ margin: "0 5px" }}
+          <ArrowForwardIosOutlinedIcon
+          fontSize={'small'}
+            // size="5"
+            // fill="textSecondary"
+            // fillOpacity={"0.6"}
+            // style={{ margin: "0 5px" }}
           />
         }
         sx={{ alignItems: "center", mt: items ? "10px" : "" }}

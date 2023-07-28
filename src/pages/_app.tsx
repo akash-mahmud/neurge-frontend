@@ -31,6 +31,8 @@ import {  ApolloProvider } from "@apollo/client";
 import client from "@/apollo/client";
 import Guard from "@/auth/Gard";
 import { Spin } from "antd";
+import { SkeletonTheme } from "react-loading-skeleton";
+import 'react-loading-skeleton/dist/skeleton.css'
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -83,8 +85,10 @@ const MyApp = (props: MyAppProps) => {
 export default (props: MyAppProps) => (
   <Provider store={Store}>
           <PersistGate loading={<Spin/>} persistor={persistor}>
+          <SkeletonTheme baseColor="#F0F0F0" >
 
     <MyApp {...props} />
+    </SkeletonTheme>
     </PersistGate>
 
   </Provider>

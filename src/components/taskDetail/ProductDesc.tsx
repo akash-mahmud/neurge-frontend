@@ -101,9 +101,8 @@ const ProductDesc = ({task}:{
         <TabPanel value={value} index={0}>
         
         
-          <Typography color="textSecondary" variant="h5" fontWeight={500} >
-          Prompts
-Copy a prompt, replace placeholders with relevant text, and paste it at ChatGPT for an efficient and streamlined experience.
+          <Typography fontSize={'1.5rem'} color="textSecondary" variant="h5" fontWeight={500} >
+          Copy a prompt, replace placeholders with relevant text, and paste it at ChatGPT for an efficient and streamlined experience.
           </Typography>
           <Grid container spacing={3} mt={1}>
           <Grid lg={12} md={12}  item xs={12}>

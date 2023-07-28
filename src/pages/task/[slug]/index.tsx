@@ -7,21 +7,10 @@ import ChildCard from '@/components/shared/ChildCard';
 import { Grid } from '@mui/material';
 import { useTaskQuery } from '@/graphql/generated/schema';
 import { useRouter } from 'next/router';
+import Breadcrumb from '@/layouts/full/shared/breadcrumb/Breadcrumb';
 
 
-const BCrumb = [
-  {
-    to: '/',
-    title: 'Home',
-  },
-  {
-    title: 'Shop',
-    to: '/apps/ecommerce/shop',
-  },
-  {
-    title: 'detail',
-  },
-];
+
 
 const EcommerceDetail = () => {
   const router = useRouter()
@@ -32,20 +21,37 @@ const EcommerceDetail = () => {
       }
     }
   })
+  const BCrumb = [
+    {
+      to: '/',
+      title: 'Home',
+    },
+    {
+      title: 'Tasks',
+      to: '/',
+    },
+    {
+      title: data?.task?.category?.name,
+      to: `/?category=${data?.task?.categoryId}`,
+
+    },
+  ];
   return (
-    <PageContainer>
-      <Grid container spacing={3} sx={{ maxWidth: { lg: '1055px', xl: '1200px' } }}>
+    <PageContainer >
+            <Breadcrumb  items={BCrumb} />
+
+      <Grid container spacing={3} >
         <Grid item xs={12} sm={12} lg={12}>
           <ChildCard>
             {/* ------------------------------------------- */}
             {/* Carousel */}
             {/* ------------------------------------------- */}
             <Grid container spacing={3}>
-              <Grid item xs={12} sm={12} lg={8}>
+              <Grid item xs={12} sm={12} lg={10}>
               <TaskDetail task={data}/>
 
               </Grid>
-              <Grid item xs={12} sm={12} lg={4}>
+              <Grid item xs={12} sm={12} lg={2}>
               <SideSection />
 
               </Grid>

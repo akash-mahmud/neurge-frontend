@@ -8,14 +8,14 @@ const SideSection = () => {
   
 
   return (
-<Grid container spacing={3} >
-<Grid item xs={3}  sm={4} lg={3} >
-  <Button><Link/></Button>
-</Grid>
-<Grid item xs={3} sm={4} lg={3} >
-  <Button><Favorite/></Button>
-</Grid>
-</Grid>
+<>
+
+<Button style={{
+  margin:5
+}}><Link/></Button>
+<Button><Favorite/></Button>
+</>
+
   );
 };
 

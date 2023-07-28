@@ -1,21 +1,21 @@
-query tasksWithoutrelationalData($where: TaskWhereInput, $orderBy: [TaskOrderByWithRelationInput!], $take: Int) {
-  getUserTasks(where: $where, orderBy: $orderBy, take: $take) {
+query tasksWithoutrelationalData($where: TaskWhereInput, $orderBy: [TaskOrderByWithRelationInput!], $cursor: TaskWhereUniqueInput, $take: Int, $skip: Int, $distinct: [TaskScalarFieldEnum!]) {
+  getUserTasks(where: $where, orderBy: $orderBy, cursor: $cursor, take: $take, skip: $skip, distinct: $distinct) {
     tags
     slug
     name
     imoji
     id
+    description
   }
 }
 
-query AggregateTask($where: TaskWhereInput, $tasksWhere2: TaskWhereInput) {
-  aggregateTask(where: $where) {
+query AggregateTask($where: TaskWhereInput, $cursor: TaskWhereUniqueInput) {
+  aggregateTask(where: $where, cursor: $cursor) {
     _count {
       _all
-      
     }
-
-  }}
+  }
+}
 
   query Task($where: TaskWhereUniqueInput!) {
   task(where: $where) {
