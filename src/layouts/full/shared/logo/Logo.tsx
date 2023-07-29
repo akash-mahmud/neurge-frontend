@@ -9,14 +9,16 @@ const Logo = () => {
   const customizer = useSelector((state: AppState) => state.customizer);
   const LinkStyled = styled(Link)(() => ({
     height: customizer.TopbarHeight,
-    width: customizer.isCollapse ? "40px" : "180px",
+    width: customizer.isCollapse && !customizer.isSidebarHover ? "35px" : "180px",
     overflow: "hidden",
     display: "block",
   }));
 
   if (customizer.activeDir === "ltr") {
     return (
-      <LinkStyled href="/">
+      <LinkStyled href="/" style={{
+        margin:'10px 0',
+      }}>
         {customizer.activeMode === "dark" ? (
           <Image
             src="/images/logos/logo.png"
@@ -39,7 +41,9 @@ const Logo = () => {
   }
 
   return (
-    <LinkStyled href="/">
+    <LinkStyled href="/" style={{
+      margin:'10px 0'
+    }}>
       {customizer.activeMode === "dark" ? (
         <Image
           src="/images/logos/logo.png"

@@ -15,6 +15,7 @@ import { PersistGate } from 'redux-persist/integration/react'
 
 import BlankLayout from "../layouts/blank/BlankLayout";
 import FullLayout from "../layouts/full/FullLayout";
+import NextNProgress from 'nextjs-progressbar';
 
 import "../_mockApis";
 import "../utils/i18n";
@@ -86,6 +87,7 @@ export default (props: MyAppProps) => (
   <Provider store={Store}>
           <PersistGate loading={<Spin/>} persistor={persistor}>
           <SkeletonTheme baseColor="#F0F0F0" >
+          <NextNProgress showOnShallow={true} color="#5D87FF" />
 
     <MyApp {...props} />
     </SkeletonTheme>
