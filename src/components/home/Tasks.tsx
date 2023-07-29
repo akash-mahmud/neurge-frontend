@@ -85,9 +85,7 @@ const Tasks = () => {
                         />
                       </Typography>
 
-                      <Grid display={'flex'} style={{
-                        margin: 5
-                      }} justifyContent={'flex-start'} item xs={12} sm={12} lg={12} key={i}>
+                      <Grid display={'flex'}  justifyContent={'flex-start'} item xs={12} sm={12} lg={12} key={i}>
                         {
                           task.tags.map((tag, index) => (
 

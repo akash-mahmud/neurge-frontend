@@ -10,7 +10,7 @@ const Logo = () => {
   const LinkStyled = styled(Link)(() => ({
     height: customizer.TopbarHeight,
     width: customizer.isCollapse && !customizer.isSidebarHover ? "35px" : "180px",
-    // overflow: "hidden",
+    overflow: "hidden",
     display: "block",
   }));
 
@@ -18,13 +18,14 @@ const Logo = () => {
     return (
       <LinkStyled href="/" style={{
         margin:'10px 0',
+        marginTop:20
       }}>
         {customizer.activeMode === "dark" ? (
           <Image
             src="/images/logos/logo.png"
             alt="logo"
             height={customizer.TopbarHeight}
-            width={187}
+            width={164}
             priority
           />
         ) : (
@@ -32,7 +33,7 @@ const Logo = () => {
             src={"/images/logos/logo.png"}
             alt="logo"
             height={customizer.TopbarHeight}
-            width={187}
+            width={164}
             priority
           />
         )}
@@ -42,14 +43,16 @@ const Logo = () => {
 
   return (
     <LinkStyled href="/" style={{
-      margin:'10px 0'
+      margin:'10px 0',
+      marginTop:20
+
     }}>
       {customizer.activeMode === "dark" ? (
         <Image
           src="/images/logos/logo.png"
           alt="logo"
           height={customizer.TopbarHeight}
-          width={187}
+          width={164}
           priority
         />
       ) : (
@@ -57,7 +60,7 @@ const Logo = () => {
           src="/images/logos/logo.png"
           alt="logo"
           height={customizer.TopbarHeight}
-          width={187}
+          width={164}
           priority
         />
       )}
