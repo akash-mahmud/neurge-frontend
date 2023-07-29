@@ -65,7 +65,7 @@ const MyApp = (props: MyAppProps) => {
         <Guard authGuard={AuthGard} guestGuard={GeustGard}>
           <Head>
             <meta name="viewport" content="initial-scale=1, width=device-width" />
-            <title>Modernize NextJs Admin template</title>
+            <title>Neurge</title>
           </Head>
 
           <ThemeProvider theme={theme}>

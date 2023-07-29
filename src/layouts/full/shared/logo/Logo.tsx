@@ -10,7 +10,7 @@ const Logo = () => {
   const LinkStyled = styled(Link)(() => ({
     height: customizer.TopbarHeight,
     width: customizer.isCollapse && !customizer.isSidebarHover ? "35px" : "180px",
-    overflow: "hidden",
+    // overflow: "hidden",
     display: "block",
   }));
 
@@ -24,7 +24,7 @@ const Logo = () => {
             src="/images/logos/logo.png"
             alt="logo"
             height={customizer.TopbarHeight}
-            width={174}
+            width={187}
             priority
           />
         ) : (
@@ -32,7 +32,7 @@ const Logo = () => {
             src={"/images/logos/logo.png"}
             alt="logo"
             height={customizer.TopbarHeight}
-            width={174}
+            width={187}
             priority
           />
         )}
@@ -49,7 +49,7 @@ const Logo = () => {
           src="/images/logos/logo.png"
           alt="logo"
           height={customizer.TopbarHeight}
-          width={174}
+          width={187}
           priority
         />
       ) : (
@@ -57,7 +57,7 @@ const Logo = () => {
           src="/images/logos/logo.png"
           alt="logo"
           height={customizer.TopbarHeight}
-          width={174}
+          width={187}
           priority
         />
       )}
