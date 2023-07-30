@@ -91,6 +91,7 @@ const ProductDetail = ({ task }: {
           <Typography
             variant="subtitle2"
             mt={1}
+            fontSize={'1rem'}
             color={theme.palette.text.secondary}
           >
             {task?.task?.description}
@@ -108,18 +109,10 @@ const ProductDetail = ({ task }: {
 
 
           </Stack>
-          <Divider />
 
-
-
-
-          {/* ------------------------------------------- */}
-          {/* Alert When click on add to cart */}
-          {/* ------------------------------------------- */}
-          {/* <AlertCart handleClose={handleClose} openCartAlert={cartalert} /> */}
         </>
       ) : (
-        "No product"
+        "No Task"
       )}
     </Box>
   );

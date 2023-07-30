@@ -14,17 +14,19 @@ const Modern = () => {
   return (
 
 
-    <PageContainer>
-      <Box>
+    <PageContainer >
+      <Box >
         <Grid container spacing={3}>
           {/* column */}
-          <Grid item xs={12} lg={12}>
+          <Grid item xs={12} lg={12} mb={1}>
           <Spin spinning={loading}>
 
           <Chip style={{
                     margin:5,
                     cursor:'pointer'
                   }}
+                  color={!router?.query?.category  ? 'primary':'default'}
+
                   onClick={()=> {
                     router.push({
                       query: {}

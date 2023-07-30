@@ -57,6 +57,8 @@ const Tasks = () => {
 
                       <Typography lineHeight={'unset'} align="left" fontSize={'2.2rem'}
                         mt={1}
+                        pb={1}
+
                         variant="subtitle1"
                         fontWeight={600}
                       >

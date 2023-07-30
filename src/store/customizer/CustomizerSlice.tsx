@@ -16,13 +16,12 @@ interface StateType {
   isCardShadow?: boolean;
   borderRadius?: number | any;
 }
-
 const initialState: StateType = {
   activeDir: 'ltr',
   activeMode: 'light', // This can be light or dark
   activeTheme: 'BLUE_THEME', // BLUE_THEME, GREEN_THEME, BLACK_THEME, PURPLE_THEME, ORANGE_THEME
   SidebarWidth: 270,
-  MiniSidebarWidth: 87,
+  MiniSidebarWidth: 92,
   TopbarHeight: 35,
   isLayout: 'boxed', // This can be full or boxed
   isCollapse: false, // to make sidebar Mini by default

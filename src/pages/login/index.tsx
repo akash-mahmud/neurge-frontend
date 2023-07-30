@@ -13,13 +13,26 @@ const Login = () => (
         item
         xs={12}
         sm={12}
-        lg={7}
+        lg={5}
         xl={6}
         display="flex"
         justifyContent="center"
         alignItems="center"
       >
-        <Box p={4}>
+        <Grid height={'100%'}>
+          {/* ?previous value was 50% */}
+        <Grid container padding={'1.25rem'} justifyContent={'center'} height={'88%'}>
+          <Grid item md={12}>
+
+        <Box  >
+            <Logo />
+          </Box>
+          </Grid>
+          <Grid item>
+
+          <Box position="relative">
+       
+          <Box p={4}>
           <AuthLogin
             title="Sign In"
             subtext={
@@ -46,11 +59,17 @@ Welcome in Neurge! Please enter your details.              </Typography>
             }
           />
         </Box>
-      </Grid> <Grid
+          </Box>
+          </Grid>
+        </Grid>
+</Grid>
+     
+      </Grid> 
+      <Grid
         item
         xs={12}
         sm={12}
-        lg={5}
+        lg={7}
         xl={6}
         sx={{
           position: 'relative',
@@ -67,9 +86,7 @@ Welcome in Neurge! Please enter your details.              </Typography>
         }}
       >
         <Box position="relative">
-          <Box px={3}>
-            <Logo />
-          </Box>
+      
           <Box
             alignItems="center"
             justifyContent="center"

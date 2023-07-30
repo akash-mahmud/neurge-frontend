@@ -110,7 +110,7 @@ notification.error({
 
         <Stack>
           <Box>
-            <CustomFormLabel htmlFor="username">email</CustomFormLabel>
+            <CustomFormLabel htmlFor="username">Email</CustomFormLabel>
             <CustomTextField name="email" id="username" variant="outlined" autoComplete={'off'} fullWidth onChange={onChange} />
           </Box>
           <Box>

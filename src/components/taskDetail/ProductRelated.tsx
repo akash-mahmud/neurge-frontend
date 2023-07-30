@@ -74,10 +74,13 @@ not:{
       padding:'24px'
     }}>
 
-      <Typography variant="h4" mb={2} mt={5} >
+      <Typography variant="h4" mb={2} mt={5} fontSize={'2.25rem'} >
         Related Tasks
       </Typography>
+      <Typography   fontSize={'1rem'}>
+
       Discover related prompts to expand your productivity. Seamlessly connecting with ChatGPT for endless conversation possibilities.
+      </Typography>
       <Grid container spacing={3} mt={3}>
       {
           !loading ? <>
@@ -94,6 +97,7 @@ not:{
 
                       <Typography lineHeight={'unset'} align="left" fontSize={'2.2rem'}
                         mt={1}
+                        pb={1}
                         variant="subtitle1"
                         fontWeight={600}
                       >

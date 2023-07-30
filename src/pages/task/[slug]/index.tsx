@@ -8,6 +8,7 @@ import { Grid } from '@mui/material';
 import { useTaskQuery } from '@/graphql/generated/schema';
 import { useRouter } from 'next/router';
 import Breadcrumb from '@/layouts/full/shared/breadcrumb/Breadcrumb';
+import { Spin } from 'antd';
 
 
 
@@ -38,6 +39,8 @@ const EcommerceDetail = () => {
   ];
   return (
     <PageContainer >
+      <Spin spinning={loading}>
+
             <Breadcrumb  items={BCrumb} />
 
       <Grid container spacing={3} >
@@ -65,6 +68,7 @@ const EcommerceDetail = () => {
           <ProductRelated categoryId ={data?.task?.categoryId}/>
         </Grid>
       </Grid>
+      </Spin>
     </PageContainer>
   );
 };

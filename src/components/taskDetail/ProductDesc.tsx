@@ -91,8 +91,8 @@ const ProductDesc = ({task}:{
             scrollButtons
             indicatorColor="primary"
           >
-            <Tab label="Prompts" {...a11yProps(0)} />
-            <Tab label="Tips" {...a11yProps(1)} />
+            <Tab label={<Typography fontWeight={'bold'}>Prompts</Typography>} {...a11yProps(0)} />
+            <Tab label={<Typography fontWeight={'bold'}>Tips</Typography>}  {...a11yProps(1)} />
           </Tabs>
         </Box>
         {/* ------------------------------------------- */}
@@ -101,7 +101,8 @@ const ProductDesc = ({task}:{
         <TabPanel value={value} index={0}>
         
         
-          <Typography fontSize={'1.5rem'} color="textSecondary" variant="h5" fontWeight={500} >
+          <Typography             fontSize={'1rem'}
+color="textSecondary" variant="h5" fontWeight={500} >
           Copy a prompt, replace placeholders with relevant text, and paste it at ChatGPT for an efficient and streamlined experience.
           </Typography>
           <Grid container spacing={3} mt={1}>

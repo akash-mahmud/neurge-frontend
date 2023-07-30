@@ -87,7 +87,7 @@ const Prompts = ({prompts}:{
     // return <div dangerouslySetInnerHTML={{ __html: formattedText }} />;
   };
   return (
-    <Grid container spacing={3}>
+    <Grid container spacing={3} alignItems={'center'}>
       {prompts?.map((prompt, index) => (
         <Grid item xs={12} sm={12} key={index}>
           <BlankCard>
@@ -101,7 +101,7 @@ const Prompts = ({prompts}:{
                 borderEndEndRadius:0
               }}
             >
-             <Grid container flexDirection={'row'} justifyContent={'space-between'} alignContent={'center'}>
+             <Grid container flexDirection={'row'} justifyContent={'space-between'} alignItems={'center'} alignContent={'center'}>
 <Grid item >
 <Typography variant="h5" color={"#fff"}>{prompt.name}</Typography>
 
