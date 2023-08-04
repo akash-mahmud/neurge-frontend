@@ -2,6 +2,7 @@ query Categories {
   getUserCategories {
     id
     name
+    colour
     createdAt
   }
 }

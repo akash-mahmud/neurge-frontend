@@ -31,44 +31,16 @@ const ProductDetail = ({ task }: {
   task: TaskQuery | undefined | null
 }) => {
   const theme = useTheme();
-  const dispatch = useDispatch();
   const router = useRouter();
-  const getTitle: string | any = router.query.slug;
-  console.log(getTitle);
+
   // Get Product
-  useEffect(() => {
-    dispatch(fetchProducts());
-  }, [dispatch]);
 
-  console.log(getTitle);
 
-  // Get Products
-  const product: ProductType | any = useSelector(
-    (state: AppState) => state.ecommerceReducer.products[getTitle - 1]
-  );
 
-  /// select colors on click
-  const [scolor, setScolor] = useState(product ? product.colors[0] : "");
-  const setColor = (e: string) => {
-    setScolor(e);
-  };
 
-  //set qty
-  const [count, setCount] = useState(1);
 
-  // for alert when added something to cart
-  const [cartalert, setCartalert] = React.useState(false);
 
-  const handleClick = () => {
-    setCartalert(true);
-  };
 
-  const handleClose = (reason: string) => {
-    if (reason === "clickaway") {
-      return;
-    }
-    setCartalert(false);
-  };
   return (
     <Box p={2}>
       {task?.task ? (
@@ -103,7 +75,10 @@ const ProductDetail = ({ task }: {
           <Stack direction={"row"} alignItems="center" gap="10px" mt={2} pb={3}>
 
             {task?.task?.tags.map((tag, index) =>
-              <Chip key={index} label={tag} color={"warning"} size="small" />
+              <Chip key={index} label={tag} style={{
+                backgroundColor: task.task?.category?.colour,
+                color:"#fff"
+              }} size="small" />
 
             )}
 

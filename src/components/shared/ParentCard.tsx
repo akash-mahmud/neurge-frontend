@@ -5,7 +5,7 @@ import { AppState, useSelector } from '@/store';
 
 
 type Props = {
-  title: string;
+  title?: string;
   footer?: string | JSX.Element;
   children: JSX.Element;
 };
@@ -22,8 +22,9 @@ const ParentCard = ({ title, children, footer }: Props) => {
       elevation={customizer.isCardShadow ? 9 : 0}
       variant={!customizer.isCardShadow ? 'outlined' : undefined}
     >
-      <CardHeader title={title} />
-      <Divider />
+      {title?<>  <CardHeader title={title} />
+      <Divider /></>:null}
+    
 
       <CardContent>{children}</CardContent>
       {footer ? (

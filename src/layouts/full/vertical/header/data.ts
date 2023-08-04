@@ -66,16 +66,16 @@ const profile: ProfileType[] = [
   //   icon: "/images/svgs/icon-account.svg",
   // },
   {
-    href: "/seeting",
+    href: "/setting",
     title: "Settings",
     subtitle: "Profile Settings",
-    icon: "/images/svgs/icon-account.svg",
+    icon: "/images/profile/setting.png",
   },
   {
     href: "/apps/user-profile/profile",
     title: "Get Help",
     subtitle: "Ask us for help",
-    icon: "/images/svgs/icon-account.svg",
+    icon: "/images/profile/get_help.png",
   },
 ];
 

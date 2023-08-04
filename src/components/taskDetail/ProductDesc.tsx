@@ -10,6 +10,7 @@ import {
   Rating,
   Button,
   Paper,
+  CardContent,
 } from '@mui/material';
 import { IconPencil } from '@tabler/icons-react';
 import ChildCard from '../shared/ChildCard';
@@ -79,9 +80,10 @@ const ProductDesc = ({task}:{
   };
 
   return (
-    <ChildCard>
-      <Box>
-        <Box sx={{ borderBottom: 1, borderColor: 'grey.100' }}>
+      <Box bgcolor={'#fff'} my={2}>
+        <CardContent>
+
+        <Box >
           <Tabs
             value={value}
             onChange={handleChange}
@@ -98,10 +100,10 @@ const ProductDesc = ({task}:{
         {/* ------------------------------------------- */}
         {/* Decription */}
         {/* ------------------------------------------- */}
+        <CardContent>
         <TabPanel value={value} index={0}>
-        
-        
-          <Typography             fontSize={'1rem'}
+          
+          <Typography fontSize={'1rem'}
 color="textSecondary" variant="h5" fontWeight={500} >
           Copy a prompt, replace placeholders with relevant text, and paste it at ChatGPT for an efficient and streamlined experience.
           </Typography>
@@ -110,12 +112,13 @@ color="textSecondary" variant="h5" fontWeight={500} >
         <Prompts prompts= {task?.task?.prompts}/>
       </Grid>
 </Grid>
+        
           
         </TabPanel>
-        {/* ------------------------------------------- */}
+         {/* ------------------------------------------- */}
         {/* Reviews Tab */}
         {/* ------------------------------------------- */}
-        <TabPanel value={value} index={1}>
+        <TabPanel value={value} index={1} >
         <Typography color="textSecondary" variant="h5" fontWeight={500} >
         Follow these guidelines to maximize your experience and unlock the full potential of your conversations with ChatGPT.
 
@@ -126,8 +129,10 @@ color="textSecondary" variant="h5" fontWeight={500} >
         <Tips  tips={task?.task?.tips}/>
       </Grid> </Grid>
         </TabPanel>
+        </CardContent>
+       
+        </CardContent>
       </Box>
-    </ChildCard>
   );
 };
 

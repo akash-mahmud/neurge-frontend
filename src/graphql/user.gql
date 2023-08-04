@@ -20,3 +20,9 @@ mutation Login($password: String!, $email: String!) {
     }
   }
 }
+
+mutation UpdateProfile($input: UserUpdateInput!, $oldPassword: String, $updatePass: Boolean, $newPass: String, $email: String!) {
+  updateProfile(input: $input, oldPassword: $oldPassword, updatePass: $updatePass, newPass: $newPass, email: $email) {
+    message
+  }
+}

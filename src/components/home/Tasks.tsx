@@ -114,8 +114,11 @@ const Tasks = () => {
                           task.tags.map((tag, index) => (
 
                             <Chip key={index} style={{
-                              marginRight: 5
+                              marginRight: 5,
+                              backgroundColor: task?.category?.colour,
+                              color:"#fff"
                             }}
+                          
                               variant={"filled"}
                               size="small"
                               label={tag}

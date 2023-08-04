@@ -3,6 +3,7 @@ query GetUserProducts($where: ProductWhereInput, $orderBy: [ProductOrderByWithRe
     category {
       name
       id
+      colour
     }
     createdAt
     description

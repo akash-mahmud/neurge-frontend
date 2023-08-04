@@ -4,11 +4,12 @@ import SideSection from '@/components/taskDetail/SideSection';
 import ProductDesc from '@/components/taskDetail/ProductDesc';
 import ProductRelated from '@/components/taskDetail/ProductRelated';
 import ChildCard from '@/components/shared/ChildCard';
-import { Grid } from '@mui/material';
+import { CardContent, Grid } from '@mui/material';
 import { useTaskQuery } from '@/graphql/generated/schema';
 import { useRouter } from 'next/router';
 import Breadcrumb from '@/layouts/full/shared/breadcrumb/Breadcrumb';
 import { Spin } from 'antd';
+import { Box } from '@mui/system';
 
 
 
@@ -39,13 +40,23 @@ const EcommerceDetail = () => {
   ];
   return (
     <PageContainer >
+      <Box>
+      <Grid container spacing={3}>
+
       <Spin spinning={loading}>
 
             <Breadcrumb  items={BCrumb} />
+            <Grid paddingRight={'24px'} px={3} paddingBottom={'24px'} item xs={12} lg={12} xl={12} style={{
+            backgroundColor:"#F9FAFB",
+            
+          }}>
+      {/* <Grid container spacing={3} style={{
+            backgroundColor:"#F9FAFB",
+          }}> */}
+        <Grid item xs={12} sm={12} lg={12} pt={3}>
+          <Box bgcolor={'#fff'} >
+            <CardContent>
 
-      <Grid container spacing={3} >
-        <Grid item xs={12} sm={12} lg={12}>
-          <ChildCard>
             {/* ------------------------------------------- */}
             {/* Carousel */}
             {/* ------------------------------------------- */}
@@ -59,7 +70,8 @@ const EcommerceDetail = () => {
 
               </Grid>
             </Grid>
-          </ChildCard>
+            </CardContent>
+          </Box>
         </Grid>
         <Grid item xs={12} sm={12} lg={12}>
           <ProductDesc task={data} />
@@ -69,6 +81,8 @@ const EcommerceDetail = () => {
         </Grid>
       </Grid>
       </Spin>
+</Grid>
+      </Box>
     </PageContainer>
   );
 };

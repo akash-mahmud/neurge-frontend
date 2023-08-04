@@ -6,6 +6,9 @@ query tasksWithoutrelationalData($where: TaskWhereInput, $orderBy: [TaskOrderByW
     imoji
     id
     description
+    category{
+      colour
+    }
   }
 }
 
@@ -41,7 +44,7 @@ query AggregateTask($where: TaskWhereInput, $cursor: TaskWhereUniqueInput) {
     }
      category {
       name
-      
+      colour
     }
  
   }

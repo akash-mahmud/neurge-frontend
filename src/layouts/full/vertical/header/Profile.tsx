@@ -97,7 +97,7 @@ const logoutUser = () => {
                   <Box
                     width="45px"
                     height="45px"
-                    bgcolor="primary.light"
+                    // bgcolor="primary.light"
                     display="flex"
                     alignItems="center"
                     justifyContent="center"
@@ -106,9 +106,10 @@ const logoutUser = () => {
                       src={profile.icon}
                       alt={profile.icon}
                       sx={{
-                        width: 24,
-                        height: 24,
+                        // width: 24,
+                        // height: 24,
                         borderRadius: 0,
+                        background:'unset'
                       }}
                     />
                   </Box>

@@ -21,7 +21,7 @@ import {
   IconBox,
 
 } from '@tabler/icons-react';
-import { AddOutlined, Help, Layers, Settings } from '@mui/icons-material';
+import { AddOutlined, Help, HowToVoteRounded, Layers, LayersRounded, LibraryAddRounded, Settings } from '@mui/icons-material';
 
 const Menuitems: MenuitemsType[] = [
   // {
@@ -32,7 +32,7 @@ const Menuitems: MenuitemsType[] = [
   {
     id: uniqueId(),
     title: 'Tasks',
-    icon: Layers,
+    icon: LayersRounded,
     href: '/',
     // chip: 'New',
     chipColor: 'secondary',
@@ -46,7 +46,7 @@ const Menuitems: MenuitemsType[] = [
     title: 'Prompt Packs',
     chip: '13',
     chipColor: 'secondary',
-    icon: IconBox,
+    icon: HowToVoteRounded,
     href: '/products',
   },
   {
@@ -54,7 +54,7 @@ const Menuitems: MenuitemsType[] = [
     title: 'Addons',
     chip: '7',
     chipColor: 'secondary',
-    icon: IconBox,
+    icon: LibraryAddRounded,
     href: '/addons',
   },
 
