@@ -13,8 +13,8 @@ const Login = () => (
         item
         xs={12}
         sm={12}
-        lg={5}
-        xl={6}
+        lg={4}
+        xl={5}
         display="flex"
         justifyContent="center"
         alignItems="center"
@@ -22,7 +22,7 @@ const Login = () => (
         <Grid height={'100%'}>
           {/* ?previous value was 50% */}
         <Grid container padding={'1.25rem'} justifyContent={'center'} height={'88%'}>
-          <Grid item md={12}>
+          <Grid item md={12} >
 
         <Box  >
             <Logo />
@@ -69,8 +69,8 @@ Welcome in Neurge! Please enter your details.              </Typography>
         item
         xs={12}
         sm={12}
-        lg={7}
-        xl={6}
+        lg={8}
+        xl={7}
         sx={{
           position: 'relative',
           '&:before': {

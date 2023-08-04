@@ -54,8 +54,8 @@ const logoutUser = () => {
           src={user?.avater?getImage(user?.avater):"/images/profile/user-1.jpg"}
           alt={'ProfileImg'}
           sx={{
-            width: 35,
-            height: 35,
+            width: 50,
+            height: 50,
           }}
         />
       </IconButton>
@@ -156,8 +156,13 @@ const logoutUser = () => {
               <img src={"/images/backgrounds/unlimited-bg.png"} alt="unlimited" className="signup-bg"></img>
             </Box>
           </Box>
-          <Button variant="outlined" color="primary" onClick={logoutUser} fullWidth>
+          <Button 
+          variant="contained"
+           color="primary" onClick={logoutUser} fullWidth>
+            <Typography fontWeight={'bold'}>
+
             Logout
+            </Typography>
           </Button>
         </Box>
       </Menu>

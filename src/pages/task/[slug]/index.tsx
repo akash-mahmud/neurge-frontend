@@ -50,11 +50,11 @@ const EcommerceDetail = () => {
             {/* Carousel */}
             {/* ------------------------------------------- */}
             <Grid container spacing={3}>
-              <Grid item xs={12} sm={12} lg={10}>
+              <Grid item xs={12} sm={12} lg={11}>
               <TaskDetail task={data}/>
 
               </Grid>
-              <Grid item xs={12} sm={12} lg={2}>
+              <Grid item xs={12} sm={12} lg={1}>
               <SideSection />
 
               </Grid>

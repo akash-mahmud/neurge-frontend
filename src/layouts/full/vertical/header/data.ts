@@ -59,16 +59,16 @@ interface ProfileType {
   icon: any;
 }
 const profile: ProfileType[] = [
-  {
-    href: "/apps/user-profile/profile",
-    title: "My Profile",
-    subtitle: "Account Settings",
-    icon: "/images/svgs/icon-account.svg",
-  },
+  // {
+  //   href: "/apps/user-profile/profile",
+  //   title: "My Purchases",
+  //   subtitle: "See your products",
+  //   icon: "/images/svgs/icon-account.svg",
+  // },
   {
     href: "/seeting",
-    title: "Setting",
-    subtitle: "External Settings",
+    title: "Settings",
+    subtitle: "Profile Settings",
     icon: "/images/svgs/icon-account.svg",
   },
   {

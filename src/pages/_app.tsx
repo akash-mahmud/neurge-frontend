@@ -87,7 +87,7 @@ export default (props: MyAppProps) => (
   <Provider store={Store}>
           <PersistGate loading={<Spin/>} persistor={persistor}>
           <SkeletonTheme baseColor="#F0F0F0" >
-          <NextNProgress showOnShallow={true} color="#5D87FF"   options={{ showSpinner: false }}
+          <NextNProgress showOnShallow={true} color="#1574EA"   options={{ showSpinner: false }}
 />
 
     <MyApp {...props} />

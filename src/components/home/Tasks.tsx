@@ -4,7 +4,7 @@ import { Box, CardContent, Chip, Grid, Typography } from "@mui/material";
 import TextTruncate from 'react-text-truncate'; // recommend
 
 import Link from "next/link";
-import { useAggregateTaskQuery, useTasksWithoutrelationalDataQuery } from "@/graphql/generated/schema";
+import { QueryMode, useAggregateTaskQuery, useTasksWithoutrelationalDataQuery } from "@/graphql/generated/schema";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { Pagination, Spin } from "antd";
@@ -23,7 +23,16 @@ const Tasks = () => {
       where: {
         categoryId: {
           equals: router.query.category as string
-        }
+        },
+          name:{
+    contains: router.query.search as string , 
+    mode:QueryMode.Insensitive
+
+  },
+
+
+
+
       }
     }
   })
@@ -33,7 +42,18 @@ const Tasks = () => {
       where: {
         categoryId: {
           equals: router.query.category as string
-        }
+        },
+       
+                  name:{
+            contains: router.query.search as string,
+            mode:QueryMode.Insensitive
+          },
+     
+        
+      
+      
+      
+      
       }
     }
   })
@@ -42,6 +62,8 @@ const Tasks = () => {
     <Spin spinning={loading}>
 
       <Grid container spacing={3} >
+       
+
         {
           !loading ? <>
             {tasks?.getUserTasks?.map((task, i) => (
@@ -115,33 +137,52 @@ const Tasks = () => {
 
           </>
         }
+        {
+           !loadingAgregete&&  total?.aggregateTask?._count?._all && total?.aggregateTask?._count?._all>0 ? null:    <Grid item md={12} >
 
-        <Grid item xs={12} sm={12} lg={12}>
 
-          <Box pb={2} mt={2} display={'flex'} alignItems={'center'} justifyContent={'center'}>
+           <Box height={'100vh'} display={'flex'} alignContent={'center'} alignItems={'center'} justifyContent={'center'}>
+<Typography variant="h1" textAlign={'center'}>
+ No Tasks Found
+</Typography>
+             
+           </Box>
+                         </Grid>
+            
+        }                        
 
-            <Pagination current={skip + 1} onShowSizeChange={(current, size) => setlimit(size)} onChange={(pageNumber) => {
-              if (pageNumber > 1) {
-                router.push({
-                  query: {
-                    ...router.query,
-                    page: pageNumber
-                  }
-                })
+        
+     
+{
+  total?.aggregateTask?._count?._all && total?.aggregateTask?._count?._all>0 ?
+   <Grid item xs={12} sm={12} lg={12}>
 
-              } else {
-                delete router.query['page']
-                router.push({
-                  query: {
-                    ...router.query
-                  }
-                })
-              }
-              setskip(pageNumber - 1)
+  <Box pb={2} mt={2} display={'flex'} alignItems={'center'} justifyContent={'center'}>
 
-            }} total={total?.aggregateTask._count?._all} pageSize={limit} />
-          </Box>
-        </Grid>
+    <Pagination current={skip + 1} onShowSizeChange={(current, size) => setlimit(size)} onChange={(pageNumber) => {
+      if (pageNumber > 1) {
+        router.push({
+          query: {
+            ...router.query,
+            page: pageNumber
+          }
+        })
+
+      } else {
+        delete router.query['page']
+        router.push({
+          query: {
+            ...router.query
+          }
+        })
+      }
+      setskip(pageNumber - 1)
+
+    }} total={total?.aggregateTask._count?._all} pageSize={limit} />
+  </Box>
+</Grid>:null
+}
+      
 
 
       </Grid>

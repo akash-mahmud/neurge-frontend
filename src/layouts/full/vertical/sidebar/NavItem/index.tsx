@@ -125,7 +125,12 @@ const NavItem = ({ item, level, pathDirect, hideMenu, onClick }: ItemType) => {
 
           {!item?.chip || hideMenu ? null : (
             <Chip
-              color={item?.chipColor}
+              // color={item?.chipColor}
+              // color={'primary'}
+              style={{
+                backgroundColor:"#BCDDFF",
+                color:"#1574EA"
+              }}
               variant={item?.variant ? item?.variant : "filled"}
               size="small"
               label={item?.chip}

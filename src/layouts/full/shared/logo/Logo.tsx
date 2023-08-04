@@ -17,7 +17,7 @@ const Logo = () => {
   if (customizer.activeDir === "ltr") {
     return (
       <LinkStyled href="/" style={{
-        margin: customizer.isCollapse? '20px 9px 0px' :'10px 0',
+        margin: customizer.isCollapse? '20px 9px 26px' :'26px 0',
         marginTop:20
       }}>
         {customizer.activeMode === "dark" ? (

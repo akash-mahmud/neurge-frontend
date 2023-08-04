@@ -1,19 +1,32 @@
 import React, { useEffect, useRef } from "react";
 import { Box, Button, Grid } from "@mui/material";
 import { Favorite, Link } from "@mui/icons-material";
+import copy from "copy-to-clipboard";
+import { useRouter } from "next/router";
+import { notification } from "antd";
 
 
 const SideSection = () => {
 
-  
+  const router = useRouter()
 
   return (
 <>
 
-<Button style={{
+<Button onClick={()=> {
+    copy(`${process.env.NEXT_PUBLIC_HOST}${router.asPath}`)
+
+  notification.success({
+    message: "Link Copied to Clipboard",
+        placement: "top",
+     
+  })
+}} style={{
   margin:5
-}}><Link/></Button>
-<Button><Favorite/></Button>
+}}><Link/>
+
+</Button>
+{/* <Button><Favorite/></Button> */}
 </>
 
   );

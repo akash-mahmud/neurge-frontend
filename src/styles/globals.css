@@ -105,3 +105,6 @@ a {
     color-scheme: dark;
   }
 }
+.ant-input-affix-wrapper, .ant-input-affix-wrapper:focus , .ant-input-search-button{
+  border-color: #1574EA !important;
+}
