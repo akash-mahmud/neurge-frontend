@@ -39,6 +39,7 @@ import {
   PaddingTwoTone,
   BorderOuter,
 } from "@mui/icons-material";
+import { useIntercom } from "react-use-intercom";
 
 const SidebarWidth = "320px";
 interface colors {
@@ -99,7 +100,17 @@ const Customizer: FC = () => {
   ];
 
   return (
-    <></>
+    <>
+    
+   {/* <Fab
+     color="primary"
+     aria-label="settings"
+     sx={{ position: "fixed", right: "25px", bottom: "15px" }}
+    //  onClick={() => boot()}
+   >
+     <IconSettings stroke={1.5} />
+   </Fab> */}
+    </>
     // <div>
     //   {/* ------------------------------------------- */}
     //   {/* --Floating Button to open customizer ------ */}

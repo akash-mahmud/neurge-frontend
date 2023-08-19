@@ -35,28 +35,8 @@ const Login = () => (
           <Box p={4}>
           <AuthLogin
             title="Sign In"
-            subtext={
-              <Typography variant="subtitle1" color="textSecondary" mb={1}>
-Welcome in Neurge! Please enter your details.              </Typography>
-            }
-            subtitle={
-              <Stack direction="row" spacing={1} mt={3}>
-                <Typography color="textSecondary" variant="h6" fontWeight="500">
-                  New to Modernize?
-                </Typography>
-                <Typography
-                  component={Link}
-                  href="/auth/auth1/register"
-                  fontWeight="500"
-                  sx={{
-                    textDecoration: 'none',
-                    color: 'primary.main',
-                  }}
-                >
-                  Create an account
-                </Typography>
-              </Stack>
-            }
+         
+          
           />
         </Box>
           </Box>
@@ -99,11 +79,11 @@ Welcome in Neurge! Please enter your details.              </Typography>
             }}
           >
             <img
-              src={"/images/backgrounds/login-bg.svg"}
+              src={"/images/backgrounds/login.jpg"}
               alt="bg"
               style={{
                 width: '100%',
-                maxWidth: '500px',
+                maxWidth: '600px',
               }}
             />
           </Box>

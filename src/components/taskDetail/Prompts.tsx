@@ -110,7 +110,11 @@ const Prompts = ({prompts}:{
   copy(prompt.description);
   notification.success({
     message:'Prompt copied to clipboard',
-    placement:'top'
+    placement:'top',
+    style: {
+      marginBottom:'unset', 
+      paddingBottom:10
+    }
   })
 
 

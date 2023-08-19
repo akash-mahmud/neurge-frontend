@@ -13,7 +13,7 @@ const NotPurchased = () => {
   const theme = useTheme();
 
 
-  const { data: notpurchased } = useGetUserNotPurchasedAddonsQuery()
+  const { data: notpurchased , loading} = useGetUserNotPurchasedAddonsQuery()
 
   return (
 <>{notpurchased?.getUserNotPurchasedAddons?.map((addon, index) => (

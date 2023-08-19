@@ -43,7 +43,7 @@ dependencies:
     version: 5.0.15(@emotion/react@11.10.6)(@emotion/styled@11.10.6)(@mui/material@5.11.10)(@mui/system@5.13.6)(date-fns@2.29.3)(react-dom@18.2.0)(react@18.2.0)
   '@next/font':
     specifier: latest
-    version: 13.4.12
+    version: 13.4.19
   '@reduxjs/toolkit':
     specifier: ^1.9.5
     version: 1.9.5(react-redux@8.0.5)(react@18.2.0)
@@ -155,6 +155,9 @@ dependencies:
   react-text-truncate:
     specifier: ^0.19.0
     version: 0.19.0(react-dom@18.2.0)(react@18.2.0)
+  react-use-intercom:
+    specifier: ^5.1.4
+    version: 5.1.4(react-dom@18.2.0)(react@18.2.0)
   redux:
     specifier: ^4.2.0
     version: 4.2.0
@@ -3196,8 +3199,8 @@ packages:
       glob: 7.1.7
     dev: true
 
-  /@next/font@13.4.12:
-    resolution: {integrity: sha512-w/ygNFuscvvFKFTMoIqhU8Kaq1wM6x4XEu9bwzJaj8G7aloH866TUPeCgiKf+M/ACpMKfRahQa06REcg6T3CyA==}
+  /@next/font@13.4.19:
+    resolution: {integrity: sha512-yOuSRYfqksWcaG/sATr1/DEGvvI8gnmAAnQCCZ0+L9p4Pio3/DMu71J56YHh9Hz84LDN4tMVzuux0ssCuM50sA==}
     dev: false
 
   /@next/swc-android-arm-eabi@13.1.6:
@@ -9831,6 +9834,16 @@ packages:
       dom-helpers: 5.2.1
       loose-envify: 1.4.0
       prop-types: 15.8.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
+  /react-use-intercom@5.1.4(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-37dMuCg3H5KgMqpUMiZiu7Ni1LcRAkO8T7F1Zg4Xc+hL89j8OYFHzWWBy29EFgRsTdvCEJ2X8J5wAXerU9uuqw==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+    dependencies:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: false

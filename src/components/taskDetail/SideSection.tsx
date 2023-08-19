@@ -19,6 +19,10 @@ const SideSection = () => {
   notification.success({
     message: "Link Copied to Clipboard",
         placement: "top",
+        style: {
+          marginBottom:'unset', 
+          paddingBottom:10
+        }
      
   })
 }} style={{

@@ -6,6 +6,10 @@ import {
   Button,
   Stack,
   Divider,
+  IconButton,
+  InputAdornment,
+  OutlinedInput,
+  Icon,
 } from "@mui/material";
 import Link from "next/link";
 import { loginType } from "../../../src/types/auth/auth";
@@ -20,6 +24,7 @@ import { useRouter } from "next/router";
 import CustomCheckbox from "../forms/theme-elements/CustomCheckbox";
 import CustomFormLabel from "../forms/theme-elements/CustomFormLabel";
 import CustomTextField from "../forms/theme-elements/CustomTextField";
+import { VisibilityOff, Visibility } from "@mui/icons-material";
 
 const AuthLogin = ({ title, subtitle, subtext }: loginType) => {
   const [input, setinput] = useState<LoginMutationVariables>({
@@ -62,7 +67,11 @@ const AuthLogin = ({ title, subtitle, subtext }: loginType) => {
       
       if(result?.payload?.login?.isAuthenticated){
         notification.success({
-          message: 'Logged in'
+          message: 'Logged in',
+          style: {
+            marginBottom:'unset', 
+            paddingBottom:10
+          }
         })
         router.push('/')
       }
@@ -74,7 +83,11 @@ const AuthLogin = ({ title, subtitle, subtext }: loginType) => {
 // })
 notification.error({
   // @ts-ignore
-  message:result?.payload?.message as string
+  message:result?.payload?.message as string ,
+  style: {
+    marginBottom:'unset', 
+    paddingBottom:10
+  }
 })
       }
  
@@ -82,13 +95,21 @@ notification.error({
     } catch (error: any) {
       
       notification.error({
-        message: error.message
+        message: error.message,
+        style: {
+          marginBottom:'unset', 
+          paddingBottom:10
+        }
       })
     }
 
     setloading(false)
 
   }
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+
   return (
     <>
       <Spin spinning={loading}>
@@ -111,14 +132,33 @@ notification.error({
         <Stack>
           <Box>
             <CustomFormLabel htmlFor="username">Email</CustomFormLabel>
-            <CustomTextField name="email" id="username" variant="outlined" autoComplete={'off'} fullWidth onChange={onChange} />
+            <OutlinedInput name="email" id="username"  endAdornment={
+            <InputAdornment position="end">
+           <Typography color={'#D6E4FF'} variant="h5">@</Typography>
+            </InputAdornment>
+          }  autoComplete={'off'} fullWidth onChange={onChange} />
           </Box>
           <Box>
             <CustomFormLabel htmlFor="password">Password</CustomFormLabel>
-            <CustomTextField autoComplete={'new-password'} onChange={onChange}
+            <OutlinedInput           type={showPassword ? "text" : "password"}
+ endAdornment={
+            <InputAdornment position="end">
+              <IconButton
+                aria-label="toggle password visibility"
+                onClick={handleClickShowPassword}
+                // onMouseDown={handleMouseDownPassword}
+                edge="end"
+              >
+                {showPassword ? <VisibilityOff style={{
+                  color:'#D6E4FF'
+                }} /> : <Visibility  style={{
+                  color:'#D6E4FF'
+                }}/>}
+              </IconButton>
+            </InputAdornment>
+          } autoComplete={'new-password'} onChange={onChange}
               id="password"
-              type="password"
-              variant="outlined"
+              // variant="outlined"
               fullWidth
               name="password"
             />

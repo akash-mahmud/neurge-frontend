@@ -9,6 +9,7 @@ import router, { useRouter } from 'next/router';
 import NotPurchased from './NotPurchased';
 import Image from 'next/image'
 import { getImage } from '@/utils/getimage';
+import { Spin } from 'antd';
 
 
 const PaymentGateways = () => {
@@ -16,10 +17,13 @@ const PaymentGateways = () => {
   const theme = useTheme();
 
 
-  const { data: purchasedData } = useGetUserAddonsQuery()
+  const { data: purchasedData , loading } = useGetUserAddonsQuery()
 const router = useRouter()
   return (
+    <Spin spinning={loading}>
+
     <Grid container spacing={3}>
+      
       {purchasedData?.getUserAddons?.map((addon, index) => (
         <Grid item xs={12} sm={6} lg={3} key={addon.id} minHeight={302}>
           <BlankCard style={{
@@ -37,7 +41,10 @@ const router = useRouter()
                 <Box position={'absolute'} right={6} top={6}>
 
                   <Typography >
-                    <Chip color='success' variant='outlined' label="Purchased" />
+                    <Chip  style={{
+                backgroundColor:'rgb(18, 183, 106)', 
+                color:'white'
+              }} variant='filled' label="Purchased" />
                   </Typography>
                 </Box>
               </Box>
@@ -65,6 +72,7 @@ const router = useRouter()
                   <NotPurchased/>
 
     </Grid>
+    </Spin>
   );
 };
 

@@ -20,22 +20,24 @@ const Modern = () => {
           {/* column */}
           <Grid item xs={12} lg={12} mb={1}>
           <Spin spinning={loading}>
+{
+  categories?.getUserCategories.length &&  categories?.getUserCategories.length > 0? <Chip style={{
+    margin:5,
+    cursor:'pointer'
+  }}
+  color={!router?.query?.category  ? 'primary':'default'}
 
-          <Chip style={{
-                    margin:5,
-                    cursor:'pointer'
-                  }}
-                  color={!router?.query?.category  ? 'primary':'default'}
-
-                  onClick={()=> {
-                    router.push({
-                      query: {}
-                    })
-                  }}
-                  variant={ "filled"}
-                  // size="small"
-                  label={'All'}
-                  />
+  onClick={()=> {
+    router.push({
+      query: {}
+    })
+  }}
+  variant={ "filled"}
+  // size="small"
+  label={'All'}
+  />: null
+}
+         
                   
                     
                     {
@@ -65,7 +67,7 @@ const Modern = () => {
             backgroundColor:"#F9FAFB",
             
           }}>
-            <TopCards />
+            <TopCards categories={categories}/>
           </Grid>
 
         </Grid>

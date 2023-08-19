@@ -72,7 +72,7 @@ const profile: ProfileType[] = [
     icon: "/images/profile/setting.png",
   },
   {
-    href: "/apps/user-profile/profile",
+    href: "/get-help",
     title: "Get Help",
     subtitle: "Ask us for help",
     icon: "/images/profile/get_help.png",

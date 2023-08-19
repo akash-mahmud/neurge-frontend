@@ -35,6 +35,22 @@ const logoutUser = () => {
    router.push('/login')
 
 }
+
+const handleHelpButtonClick = () => {
+  if (typeof window !== 'undefined') {
+    // Check if the window object is available (to prevent issues during server-side rendering)
+    //@ts-ignore
+    if (window.$crisp) {
+      handleClose2()
+      // If the Crisp API is available
+          //@ts-ignore
+
+      window.$crisp.push(['do', 'chat:open']);
+
+      // window.$crisp.push(['do', 'chat:open']); // Trigger the chat window to open
+    }
+  }
+};
   return (
     <Box>
       <IconButton
@@ -92,7 +108,56 @@ const logoutUser = () => {
         {dropdownData.profile.map((profile) => (
           <Box key={profile.title}>
             <Box sx={{ py: 2, px: 0 }} className="hover-text-primary">
-              <Link href={profile.href}>
+              {
+                profile.href ==='/get-help'? 
+                <Stack style={{
+                  cursor:'pointer'
+                }} onClick={handleHelpButtonClick}  direction="row" spacing={2}>
+                  <Box 
+                    width="45px"
+                    height="45px"
+                    // bgcolor="primary.light"
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="center"
+                  >
+                    <Avatar
+                      src={profile.icon}
+                      alt={profile.icon}
+                      sx={{
+                        // width: 24,
+                        // height: 24,
+                        borderRadius: 0,
+                        background:'unset'
+                      }}
+                    />
+                  </Box>
+                  <Box>
+                    <Typography
+                      variant="subtitle2"
+                      fontWeight={600}
+                      color="textPrimary"
+                      className="text-hover"
+                      noWrap
+                      sx={{
+                        width: '240px',
+                      }}
+                    >
+                      {profile.title}
+                    </Typography>
+                    <Typography
+                      color="textSecondary"
+                      variant="subtitle2"
+                      sx={{
+                        width: '240px',
+                      }}
+                      noWrap
+                    >
+                      {profile.subtitle}
+                    </Typography>
+                  </Box>
+                </Stack>
+              : <Link href={profile.href}>
                 <Stack direction="row" spacing={2}>
                   <Box
                     width="45px"
@@ -139,6 +204,8 @@ const logoutUser = () => {
                   </Box>
                 </Stack>
               </Link>
+              }
+            
             </Box>
           </Box>
         ))}

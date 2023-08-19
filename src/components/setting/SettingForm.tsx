@@ -78,15 +78,27 @@ updatePass:false
     if (data?.updateProfile?.message==='success') {
 notification.success({
   message: data?.updateProfile?.message,
+  style: {
+    marginBottom:'unset', 
+    paddingBottom:10
+  }
 })
       
     }else{
       notification.error({
         message: data?.updateProfile?.message,
+        style: {
+          marginBottom:'unset', 
+          paddingBottom:10
+        }
       })
     }
   } catch (error:any) {
-    notification.error(error.message)
+    notification.error({message:error.message , 
+      style: {
+        marginBottom:'unset', 
+        paddingBottom:10
+      }})
   }
 }
   return (

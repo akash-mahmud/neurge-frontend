@@ -132,9 +132,14 @@ not:{
                         {
                           task.tags.map((tag, index) => (
 
-                            <Chip key={index} style={{
+                            <Chip key={index}
+                            style={{
+                              backgroundColor: task?.category?.colour,
+                              color:"#fff", 
                               marginRight: 5
-                            }}
+
+                            }} 
+                           
                               variant={"filled"}
                               size="small"
                               label={tag}
