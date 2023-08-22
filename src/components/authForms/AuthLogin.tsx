@@ -24,7 +24,7 @@ import { useRouter } from "next/router";
 import CustomCheckbox from "../forms/theme-elements/CustomCheckbox";
 import CustomFormLabel from "../forms/theme-elements/CustomFormLabel";
 import CustomTextField from "../forms/theme-elements/CustomTextField";
-import { VisibilityOff, Visibility } from "@mui/icons-material";
+import { VisibilityOff, Visibility, AlternateEmail } from "@mui/icons-material";
 
 const AuthLogin = ({ title, subtitle, subtext }: loginType) => {
   const [input, setinput] = useState<LoginMutationVariables>({
@@ -123,18 +123,28 @@ notification.error({
         {subtext}
 
 
-        <Box mt={3}>
+        {/* <Box mt={3}>
           <Divider>
 
           </Divider>
-        </Box>
+        </Box> */}
 
         <Stack>
           <Box>
             <CustomFormLabel htmlFor="username">Email</CustomFormLabel>
             <OutlinedInput name="email" id="username"  endAdornment={
             <InputAdornment position="end">
-           <Typography color={'#D6E4FF'} variant="h5">@</Typography>
+               <IconButton
+                aria-label="toggle password visibility"
+               
+                // onMouseDown={handleMouseDownPassword}
+                edge="end"
+              >
+              <AlternateEmail  style={{
+                  color:'#D6E4FF'
+                }}/>
+              </IconButton>
+           {/* <Typography color={'#D6E4FF'} variant="h5">@</Typography> */}
             </InputAdornment>
           }  autoComplete={'off'} fullWidth onChange={onChange} />
           </Box>

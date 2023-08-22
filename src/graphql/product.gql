@@ -16,3 +16,23 @@ query GetUserProducts($where: ProductWhereInput, $orderBy: [ProductOrderByWithRe
     topTierPromptCount
   }
 }
+
+
+query GetUserNotPurchasedProducts($where: ProductWhereInput, $orderBy: [ProductOrderByWithRelationInput!], $cursor: ProductWhereUniqueInput, $take: Int, $skip: Int, $distinct: [ProductScalarFieldEnum!]) {
+  getUserNotPurchasedProducts(where: $where, orderBy: $orderBy, cursor: $cursor, take: $take, skip: $skip, distinct: $distinct) {
+    category {
+      colour
+      id
+      name
+    }
+    createdAt
+    description
+    id
+    image
+    moneyBackGuarantee
+    name
+    slug
+    taskAutomateCount
+    topTierPromptCount
+  }
+}

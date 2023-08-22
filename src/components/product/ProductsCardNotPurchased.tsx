@@ -3,7 +3,7 @@ import { Stack } from '@mui/system';
 import Link from 'next/link';
 import {  MenuBook,  Task } from '@mui/icons-material';
 import { IconCurrencyDollar } from '@tabler/icons-react';
-import { useGetUserProductsQuery } from '@/graphql/generated/schema';
+import { useGetUserNotPurchasedProductsQuery, useGetUserProductsQuery } from '@/graphql/generated/schema';
 import { useRouter } from 'next/router';
 import BlankCard from '../shared/BlankCard';
 import { getImage } from '@/utils/getimage';
@@ -13,20 +13,21 @@ import ProductSkeleton from './ProductSkeleton';
 
 
 
-const ProductsCard = () => {
-  const {data , loading} = useGetUserProductsQuery()
+const ProductsCardNotPurchased = () => {
+  const {data , loading} = useGetUserNotPurchasedProductsQuery()
   const router = useRouter()
   return (
     
     <>
-    {
+     {
       loading?  <>
-      {[...Array(8)].map((_, index) => (
+      {[...Array(20)].map((_, index) => (
         <ProductSkeleton key={index} />
       ))}
 
     </>:<>
-    {data?.getUserProducts?.map((product, index) => (
+
+             {data?.getUserNotPurchasedProducts?.map((product, index) => (
                <Grid item xs={12} sm={6} lg={3} key={product.id} minHeight={302}>
                  <BlankCard style={{
                    height:'100%'
@@ -40,7 +41,7 @@ const ProductsCard = () => {
                      <Typography component={Link} href={`/?category=${product.category?.id}`}>
                      <img src={getImage(product.image)} alt="img" width="100%" />
                    </Typography>
-                   <Box position={'absolute'} right={6} top={6}>
+                   {/* <Box position={'absolute'} right={6} top={6}>
        
                    <Typography component={Link} href={`/?category=${product.category?.id}`}>
                      <Chip style={{
@@ -48,7 +49,7 @@ const ProductsCard = () => {
                        color:'white'
                      }} variant='filled'  label="Purchased"/>
                    </Typography>
-                   </Box>
+                   </Box> */}
                    </Box>
                      <Stack direction="row" spacing={2} mt={3}>
                        <Box>
@@ -68,8 +69,8 @@ const ProductsCard = () => {
                        </Box>
                      </Stack>
                      <Stack spacing={2} mt={3} mb={3}>
-                       <Button  size="large" variant="text" color='info'onClick={() => router.push(`/?category=${product.category?.id}`)} >
-                         View Prompts
+                       <Button  size="large" variant="text" color='info'onClick={() => window.open('https://neurge.com', '_blank')} >
+                         Buy prompts pack
                        </Button>
                       
                      </Stack>
@@ -112,16 +113,12 @@ const ProductsCard = () => {
                  </BlankCard>
                </Grid>
              ))}
-    </>
-    }
-
-            
-       
-
-      
+         
+         </>
+    }      
    
     </>
   );
 };
 
-export default ProductsCard;
+export default ProductsCardNotPurchased;

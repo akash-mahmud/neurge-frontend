@@ -1,6 +1,7 @@
 import { Grid } from '@mui/material';
 import ProductsCard from '@/components/product/ProductsCard';
 import PageContainer from '@/components/container/PageContainer';
+import ProductsCardNotPurchased from '@/components/product/ProductsCardNotPurchased';
 
 
 
@@ -23,11 +24,11 @@ export default function index() {
     <Grid container spacing={3}>
       
   
-      <Grid item xs={12}>
+      {/* <Grid item xs={12}> */}
         <ProductsCard />
-      </Grid>
-    
-     
+     <ProductsCardNotPurchased/>
+      {/* </Grid> */}
+
     </Grid>
     </PageContainer>
   )

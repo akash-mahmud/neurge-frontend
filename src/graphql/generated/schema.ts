@@ -3183,6 +3183,8 @@ export type Query = {
   getUserBlogSingle: Blog;
   getUserCategories: Array<Category>;
   getUserNotPurchasedAddons: Array<Addon>;
+  getUserNotPurchasedCategories: Array<Category>;
+  getUserNotPurchasedProducts: Array<Product>;
   getUserProducts: Array<Product>;
   getUserPurchasedSingleAddon: Addon;
   getUserTasks: Array<Task>;
@@ -3606,6 +3608,26 @@ export type QueryGetUserNotPurchasedAddonsArgs = {
   skip?: InputMaybe<Scalars['Int']['input']>;
   take?: InputMaybe<Scalars['Int']['input']>;
   where?: InputMaybe<AddonWhereInput>;
+};
+
+
+export type QueryGetUserNotPurchasedCategoriesArgs = {
+  cursor?: InputMaybe<CategoryWhereUniqueInput>;
+  distinct?: InputMaybe<Array<CategoryScalarFieldEnum>>;
+  orderBy?: InputMaybe<Array<CategoryOrderByWithRelationInput>>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  take?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<CategoryWhereInput>;
+};
+
+
+export type QueryGetUserNotPurchasedProductsArgs = {
+  cursor?: InputMaybe<ProductWhereUniqueInput>;
+  distinct?: InputMaybe<Array<ProductScalarFieldEnum>>;
+  orderBy?: InputMaybe<Array<ProductOrderByWithRelationInput>>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  take?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<ProductWhereInput>;
 };
 
 
@@ -5101,6 +5123,18 @@ export type CategoriesQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type CategoriesQuery = { __typename?: 'Query', getUserCategories: Array<{ __typename?: 'Category', id: string, name: string, colour: string, createdAt: any }> };
 
+export type GetUserNotPurchasedCategoriesQueryVariables = Exact<{
+  where?: InputMaybe<CategoryWhereInput>;
+  orderBy?: InputMaybe<Array<CategoryOrderByWithRelationInput> | CategoryOrderByWithRelationInput>;
+  cursor?: InputMaybe<CategoryWhereUniqueInput>;
+  take?: InputMaybe<Scalars['Int']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  distinct?: InputMaybe<Array<CategoryScalarFieldEnum> | CategoryScalarFieldEnum>;
+}>;
+
+
+export type GetUserNotPurchasedCategoriesQuery = { __typename?: 'Query', getUserNotPurchasedCategories: Array<{ __typename?: 'Category', colour: string, id: string, name: string, createdAt: any }> };
+
 export type GetUserProductsQueryVariables = Exact<{
   where?: InputMaybe<ProductWhereInput>;
   orderBy?: InputMaybe<Array<ProductOrderByWithRelationInput> | ProductOrderByWithRelationInput>;
@@ -5112,6 +5146,18 @@ export type GetUserProductsQueryVariables = Exact<{
 
 
 export type GetUserProductsQuery = { __typename?: 'Query', getUserProducts: Array<{ __typename?: 'Product', createdAt: any, description: string, id: string, image: string, moneyBackGuarantee: number, name: string, slug: string, taskAutomateCount: number, topTierPromptCount: number, category?: { __typename?: 'Category', name: string, id: string, colour: string } | null }> };
+
+export type GetUserNotPurchasedProductsQueryVariables = Exact<{
+  where?: InputMaybe<ProductWhereInput>;
+  orderBy?: InputMaybe<Array<ProductOrderByWithRelationInput> | ProductOrderByWithRelationInput>;
+  cursor?: InputMaybe<ProductWhereUniqueInput>;
+  take?: InputMaybe<Scalars['Int']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  distinct?: InputMaybe<Array<ProductScalarFieldEnum> | ProductScalarFieldEnum>;
+}>;
+
+
+export type GetUserNotPurchasedProductsQuery = { __typename?: 'Query', getUserNotPurchasedProducts: Array<{ __typename?: 'Product', createdAt: any, description: string, id: string, image: string, moneyBackGuarantee: number, name: string, slug: string, taskAutomateCount: number, topTierPromptCount: number, category?: { __typename?: 'Category', colour: string, id: string, name: string } | null }> };
 
 export type TasksWithoutrelationalDataQueryVariables = Exact<{
   where?: InputMaybe<TaskWhereInput>;
@@ -5439,6 +5485,56 @@ export function useCategoriesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions
 export type CategoriesQueryHookResult = ReturnType<typeof useCategoriesQuery>;
 export type CategoriesLazyQueryHookResult = ReturnType<typeof useCategoriesLazyQuery>;
 export type CategoriesQueryResult = Apollo.QueryResult<CategoriesQuery, CategoriesQueryVariables>;
+export const GetUserNotPurchasedCategoriesDocument = gql`
+    query GetUserNotPurchasedCategories($where: CategoryWhereInput, $orderBy: [CategoryOrderByWithRelationInput!], $cursor: CategoryWhereUniqueInput, $take: Int, $skip: Int, $distinct: [CategoryScalarFieldEnum!]) {
+  getUserNotPurchasedCategories(
+    where: $where
+    orderBy: $orderBy
+    cursor: $cursor
+    take: $take
+    skip: $skip
+    distinct: $distinct
+  ) {
+    colour
+    id
+    name
+    createdAt
+  }
+}
+    `;
+
+/**
+ * __useGetUserNotPurchasedCategoriesQuery__
+ *
+ * To run a query within a React component, call `useGetUserNotPurchasedCategoriesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetUserNotPurchasedCategoriesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetUserNotPurchasedCategoriesQuery({
+ *   variables: {
+ *      where: // value for 'where'
+ *      orderBy: // value for 'orderBy'
+ *      cursor: // value for 'cursor'
+ *      take: // value for 'take'
+ *      skip: // value for 'skip'
+ *      distinct: // value for 'distinct'
+ *   },
+ * });
+ */
+export function useGetUserNotPurchasedCategoriesQuery(baseOptions?: Apollo.QueryHookOptions<GetUserNotPurchasedCategoriesQuery, GetUserNotPurchasedCategoriesQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetUserNotPurchasedCategoriesQuery, GetUserNotPurchasedCategoriesQueryVariables>(GetUserNotPurchasedCategoriesDocument, options);
+      }
+export function useGetUserNotPurchasedCategoriesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetUserNotPurchasedCategoriesQuery, GetUserNotPurchasedCategoriesQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetUserNotPurchasedCategoriesQuery, GetUserNotPurchasedCategoriesQueryVariables>(GetUserNotPurchasedCategoriesDocument, options);
+        }
+export type GetUserNotPurchasedCategoriesQueryHookResult = ReturnType<typeof useGetUserNotPurchasedCategoriesQuery>;
+export type GetUserNotPurchasedCategoriesLazyQueryHookResult = ReturnType<typeof useGetUserNotPurchasedCategoriesLazyQuery>;
+export type GetUserNotPurchasedCategoriesQueryResult = Apollo.QueryResult<GetUserNotPurchasedCategoriesQuery, GetUserNotPurchasedCategoriesQueryVariables>;
 export const GetUserProductsDocument = gql`
     query GetUserProducts($where: ProductWhereInput, $orderBy: [ProductOrderByWithRelationInput!], $cursor: ProductWhereUniqueInput, $take: Int, $skip: Int, $distinct: [ProductScalarFieldEnum!]) {
   getUserProducts(
@@ -5499,6 +5595,66 @@ export function useGetUserProductsLazyQuery(baseOptions?: Apollo.LazyQueryHookOp
 export type GetUserProductsQueryHookResult = ReturnType<typeof useGetUserProductsQuery>;
 export type GetUserProductsLazyQueryHookResult = ReturnType<typeof useGetUserProductsLazyQuery>;
 export type GetUserProductsQueryResult = Apollo.QueryResult<GetUserProductsQuery, GetUserProductsQueryVariables>;
+export const GetUserNotPurchasedProductsDocument = gql`
+    query GetUserNotPurchasedProducts($where: ProductWhereInput, $orderBy: [ProductOrderByWithRelationInput!], $cursor: ProductWhereUniqueInput, $take: Int, $skip: Int, $distinct: [ProductScalarFieldEnum!]) {
+  getUserNotPurchasedProducts(
+    where: $where
+    orderBy: $orderBy
+    cursor: $cursor
+    take: $take
+    skip: $skip
+    distinct: $distinct
+  ) {
+    category {
+      colour
+      id
+      name
+    }
+    createdAt
+    description
+    id
+    image
+    moneyBackGuarantee
+    name
+    slug
+    taskAutomateCount
+    topTierPromptCount
+  }
+}
+    `;
+
+/**
+ * __useGetUserNotPurchasedProductsQuery__
+ *
+ * To run a query within a React component, call `useGetUserNotPurchasedProductsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetUserNotPurchasedProductsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetUserNotPurchasedProductsQuery({
+ *   variables: {
+ *      where: // value for 'where'
+ *      orderBy: // value for 'orderBy'
+ *      cursor: // value for 'cursor'
+ *      take: // value for 'take'
+ *      skip: // value for 'skip'
+ *      distinct: // value for 'distinct'
+ *   },
+ * });
+ */
+export function useGetUserNotPurchasedProductsQuery(baseOptions?: Apollo.QueryHookOptions<GetUserNotPurchasedProductsQuery, GetUserNotPurchasedProductsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetUserNotPurchasedProductsQuery, GetUserNotPurchasedProductsQueryVariables>(GetUserNotPurchasedProductsDocument, options);
+      }
+export function useGetUserNotPurchasedProductsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetUserNotPurchasedProductsQuery, GetUserNotPurchasedProductsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetUserNotPurchasedProductsQuery, GetUserNotPurchasedProductsQueryVariables>(GetUserNotPurchasedProductsDocument, options);
+        }
+export type GetUserNotPurchasedProductsQueryHookResult = ReturnType<typeof useGetUserNotPurchasedProductsQuery>;
+export type GetUserNotPurchasedProductsLazyQueryHookResult = ReturnType<typeof useGetUserNotPurchasedProductsLazyQuery>;
+export type GetUserNotPurchasedProductsQueryResult = Apollo.QueryResult<GetUserNotPurchasedProductsQuery, GetUserNotPurchasedProductsQueryVariables>;
 export const TasksWithoutrelationalDataDocument = gql`
     query tasksWithoutrelationalData($where: TaskWhereInput, $orderBy: [TaskOrderByWithRelationInput!], $cursor: TaskWhereUniqueInput, $take: Int, $skip: Int, $distinct: [TaskScalarFieldEnum!]) {
   getUserTasks(

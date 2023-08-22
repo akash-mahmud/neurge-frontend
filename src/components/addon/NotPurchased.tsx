@@ -6,6 +6,7 @@ import BlankCard from '@/components/shared/BlankCard';
 import {  useGetUserNotPurchasedAddonsQuery } from '@/graphql/generated/schema';
 import Image from 'next/image'
 import { getImage } from '@/utils/getimage';
+import AddonSkeleton from './AddonSkeleton';
 
 
 const NotPurchased = () => {
@@ -16,7 +17,15 @@ const NotPurchased = () => {
   const { data: notpurchased , loading} = useGetUserNotPurchasedAddonsQuery()
 
   return (
-<>{notpurchased?.getUserNotPurchasedAddons?.map((addon, index) => (
+<>
+{
+   loading?  <>
+   {[...Array(20)].map((_, index) => (
+     <AddonSkeleton key={index} />
+   ))}
+
+ </>:<>
+ {notpurchased?.getUserNotPurchasedAddons?.map((addon, index) => (
         <Grid item xs={12} sm={6} lg={3} key={addon.id} minHeight={302}>
           <BlankCard style={{
             height: '100%'
@@ -56,7 +65,10 @@ const NotPurchased = () => {
             </CardContent>
           </BlankCard>
         </Grid>
-      ))}</>      
+      ))}
+ </>
+}
+</>      
   );
 };
 

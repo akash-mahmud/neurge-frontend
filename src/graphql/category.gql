@@ -6,3 +6,12 @@ query Categories {
     createdAt
   }
 }
+
+query GetUserNotPurchasedCategories($where: CategoryWhereInput, $orderBy: [CategoryOrderByWithRelationInput!], $cursor: CategoryWhereUniqueInput, $take: Int, $skip: Int, $distinct: [CategoryScalarFieldEnum!]) {
+  getUserNotPurchasedCategories(where: $where, orderBy: $orderBy, cursor: $cursor, take: $take, skip: $skip, distinct: $distinct) {
+    colour
+    id
+    name
+    createdAt
+  }
+}

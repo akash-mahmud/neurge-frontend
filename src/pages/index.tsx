@@ -3,13 +3,14 @@ import { Box, Chip, Grid } from "@mui/material";
 import PageContainer from "../components/container/PageContainer";
 
 import TopCards from "../components/home/Tasks";
-import { useCategoriesQuery } from "@/graphql/generated/schema";
+import { useCategoriesQuery, useGetUserNotPurchasedCategoriesQuery } from "@/graphql/generated/schema";
 import { useRouter } from "next/router";
 import { Spin } from "antd";
 
 
 const Modern = () => {
   const {data:categories , error, loading} = useCategoriesQuery()
+  const {data:GetUserNotPurchasedCategories , error:errorGetUserNotPurchasedCategories, loading:loadingGetUserNotPurchasedCategories} = useGetUserNotPurchasedCategoriesQuery()
   const router = useRouter()
   return (
 
@@ -42,6 +43,27 @@ const Modern = () => {
                     
                     {
               categories?.getUserCategories?.map((category) => (
+                <Chip onClick={()=> {
+                  router.push({
+                    query: {
+                      category:category.id
+                    }
+                  })
+                }} key={category.id} style={{
+                  margin:5,
+                  cursor:'pointer'
+                }}
+                color={router?.query?.category === category?.id ? 'primary':'default'}
+                variant={ "filled"}
+                // size="small"
+                label={category.name}
+                />
+                
+                  
+              ))
+            }  
+                 {
+              GetUserNotPurchasedCategories?.getUserNotPurchasedCategories?.map((category) => (
                 <Chip onClick={()=> {
                   router.push({
                     query: {

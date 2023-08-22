@@ -10,6 +10,7 @@ import NotPurchased from './NotPurchased';
 import Image from 'next/image'
 import { getImage } from '@/utils/getimage';
 import { Spin } from 'antd';
+import AddonSkeleton from './AddonSkeleton';
 
 
 const PaymentGateways = () => {
@@ -23,7 +24,13 @@ const router = useRouter()
     <Spin spinning={loading}>
 
     <Grid container spacing={3}>
-      
+      {
+        loading?  <>
+        {[...Array(8)].map((_, index) => (
+          <AddonSkeleton key={index} />
+        ))}
+  
+      </>:<>
       {purchasedData?.getUserAddons?.map((addon, index) => (
         <Grid item xs={12} sm={6} lg={3} key={addon.id} minHeight={302}>
           <BlankCard style={{
@@ -69,6 +76,9 @@ const router = useRouter()
           </BlankCard>
         </Grid>
       ))}
+      </>
+      }
+     
                   <NotPurchased/>
 
     </Grid>
