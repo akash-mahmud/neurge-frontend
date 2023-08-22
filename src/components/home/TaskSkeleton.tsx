@@ -9,10 +9,10 @@ const CardSkeleton = () => {
   return (
     <>
     
-    <Grid item xs={12} sm={3} lg={4} key={uniqueId()}>
+    <Grid item xs={12} sm={3} lg={4} key={uniqueId()} >
     <Box 
     bgcolor={"#fff"} 
-    
+  
     textAlign="center">
       <CardContent>
       

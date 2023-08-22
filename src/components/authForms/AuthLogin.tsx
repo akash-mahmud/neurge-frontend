@@ -186,8 +186,8 @@ notification.error({
               />
             </FormGroup>
             <Typography
-              component={Link}
-              href="/auth/forgot-password"
+              // component={Link}
+              // href="/auth/forgot-password"
               fontWeight="500"
               sx={{
                 textDecoration: "none",
@@ -205,8 +205,12 @@ notification.error({
             size="large"
             fullWidth
             type="button"
+          
           >
-            Sign In
+            <Typography fontWeight={'bold'}>
+                          Sign In
+
+            </Typography>
           </Button>
         </Box>
         {/* {subtitle} */}

@@ -114,8 +114,8 @@ const handleHelpButtonClick = () => {
                   cursor:'pointer'
                 }} onClick={handleHelpButtonClick}  direction="row" spacing={2}>
                   <Box 
-                    width="45px"
-                    height="45px"
+                    width="30px"
+                    height="30px"
                     // bgcolor="primary.light"
                     display="flex"
                     alignItems="center"
@@ -160,8 +160,8 @@ const handleHelpButtonClick = () => {
               : <Link href={profile.href}>
                 <Stack direction="row" spacing={2}>
                   <Box
-                    width="45px"
-                    height="45px"
+                    width="30px"
+                    height="30px"
                     // bgcolor="primary.light"
                     display="flex"
                     alignItems="center"

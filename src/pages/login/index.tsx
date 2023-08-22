@@ -28,7 +28,7 @@ const Login = () => (
             <Logo />
           </Box>
           </Grid>
-          <Grid item>
+          <Grid item md={11}>
 
           <Box position="relative">
        
@@ -91,6 +91,7 @@ Welcome in Neurge! Please enter your details.              </Typography>
             alignItems="center"
             justifyContent="center"
             height={'calc(100vh - 75px)'}
+           
             sx={{
               display: {
                 xs: 'none',
@@ -99,11 +100,12 @@ Welcome in Neurge! Please enter your details.              </Typography>
             }}
           >
             <img
-              src={"/images/backgrounds/login.jpg"}
+              src={"/images/backgrounds/login.png"}
               alt="bg"
               style={{
                 width: '100%',
-                maxWidth: '600px',
+                maxWidth: '650px',
+                marginTop: '5rem'
               }}
             />
           </Box>

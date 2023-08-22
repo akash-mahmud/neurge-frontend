@@ -25,7 +25,10 @@ function NoProductCard({
     {title}
 </Typography>
 <Button variant='contained' onClick={onUnLock}>
+    <Typography fontWeight={'bold'}>
+
 {buttonText}
+    </Typography>
 </Button>
 </Box>
               </CardContent>

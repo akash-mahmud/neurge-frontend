@@ -66,7 +66,19 @@ const Tasks = ({ categories}:{
     <Spin spinning={loading}>
      
 {
-   tasks?.getUserTasks?.length === 0 && !router.query?.page ?<NoProductCard title="Prompts Locked" buttonText="Unlock it now" onUnLock={()=> {}}/>:    <Grid container spacing={3} >
+   tasks?.getUserTasks?.length === 0 && !router.query?.page ?<>
+   <Grid container position={'relative'}>
+
+    {[...Array(limit)].map((_, index) => (
+        <CardSkeleton key={index} />
+      ))}
+      <Box position={'absolute'} top={'0%'} left={'38%'} zIndex={999999999}>
+
+   <NoProductCard title="Prompts Locked" buttonText="Unlock it now" onUnLock={()=> {}}/>
+      </Box>
+   </Grid>
+   </>
+   :    <Grid container spacing={3} >
        
 
   {
@@ -156,6 +168,7 @@ const Tasks = ({ categories}:{
 
 
      <Box height={'100vh'} display={'flex'} alignContent={'center'} alignItems={'center'} justifyContent={'center'}>
+      
 <Typography variant="h1" textAlign={'center'}>
 No Tasks Found
 </Typography>

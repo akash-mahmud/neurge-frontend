@@ -57,7 +57,10 @@ const router = useRouter()
               </Box>
               <Stack direction="row" spacing={2} mt={3}>
                 <Box>
-                  <Chip label="Addon" />
+                  <Chip label="Addon"  style={{
+                       color:"#fff", 
+                       backgroundColor:'#1574EA'
+                  }}/>
 
                   <Typography variant="h6" mb={1} mt={1}>
                     {addon.name}
@@ -68,7 +71,7 @@ const router = useRouter()
               </Stack>
               <Stack spacing={2} mt={3} mb={3}>
                 <Button size="large" variant="text" color='info' onClick={() => router.push(`/addon/${addon.id}`)} >
-                  Browse content                </Button>
+                  Browse Content                </Button>
 
               </Stack>
 

@@ -22,7 +22,7 @@ export const Profile = () => {
 
   }
   return (
-    <>
+    <> 
     
     <Box
       display={'flex'}
