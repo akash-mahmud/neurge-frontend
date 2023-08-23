@@ -72,9 +72,11 @@ const Tasks = ({ categories}:{
     {[...Array(limit)].map((_, index) => (
         <CardSkeleton key={index} />
       ))}
-      <Box position={'absolute'} top={'0%'} left={'38%'} zIndex={999999999}>
+      <Box position={'absolute'} top={'0%'} left={'50%'}  zIndex={999999999} sx={{
+          transform: 'translateX(-50%)'
+      }}>
 
-   <NoProductCard title="Prompts Locked" buttonText="Unlock it now" onUnLock={()=> {}}/>
+   <NoProductCard title="Prompts Locked" buttonText="Unlock it now" onUnLock={()=> { router.push('/products')}}/>
       </Box>
    </Grid>
    </>

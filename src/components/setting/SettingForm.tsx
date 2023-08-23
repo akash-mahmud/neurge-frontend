@@ -186,7 +186,7 @@ notification.success({
          variant="contained"
          onClick={updateProfile}
        >
-         Submit
+         Save
        </Button>
     
      </Stack>

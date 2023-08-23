@@ -17,6 +17,7 @@ mutation Login($password: String!, $email: String!) {
       name
       password
       role
+      nurgePlus
     }
   }
 }

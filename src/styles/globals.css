@@ -108,3 +108,7 @@ a {
 .ant-input-affix-wrapper, .ant-input-affix-wrapper:focus , .ant-input-search-button{
   border-color: #1574EA !important;
 }
+ .blogContent  img{
+width: 100% !important;
+}
+

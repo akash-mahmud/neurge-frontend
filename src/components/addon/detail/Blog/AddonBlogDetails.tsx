@@ -53,7 +53,8 @@ const {data, loading, error} = useGetUserBlogSingleQuery({
               
                 <Chip
                   label={post?.addonBlogCategory?.name}
-                  size="small"
+                  style={{ backgroundColor:"#1574EA" , color:"white"}}
+
                   sx={{ marginTop: 2 }}
                 ></Chip>
                 <Box my={3}>

@@ -5199,7 +5199,7 @@ export type LoginMutationVariables = Exact<{
 }>;
 
 
-export type LoginMutation = { __typename?: 'Mutation', login?: { __typename?: 'LoginResponsce', accessToken?: string | null, isAuthenticated: boolean, message: string, success: boolean, user?: { __typename?: 'User', avater?: string | null, email: string, id: string, name: string, password: string, role: UserRole } | null } | null };
+export type LoginMutation = { __typename?: 'Mutation', login?: { __typename?: 'LoginResponsce', accessToken?: string | null, isAuthenticated: boolean, message: string, success: boolean, user?: { __typename?: 'User', avater?: string | null, email: string, id: string, name: string, password: string, role: UserRole, nurgePlus: boolean } | null } | null };
 
 export type UpdateProfileMutationVariables = Exact<{
   input: UserUpdateInput;
@@ -5851,6 +5851,7 @@ export const LoginDocument = gql`
       name
       password
       role
+      nurgePlus
     }
   }
 }

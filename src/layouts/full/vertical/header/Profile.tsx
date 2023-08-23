@@ -35,6 +35,7 @@ const logoutUser = () => {
    router.push('/login')
 
 }
+console.log(user);
 
 const handleHelpButtonClick = () => {
   if (typeof window !== 'undefined') {
@@ -210,20 +211,25 @@ const handleHelpButtonClick = () => {
           </Box>
         ))}
         <Box mt={2}>
-          <Box bgcolor="primary.light" p={3} mb={3} overflow="hidden" position="relative">
+          {
+            !user?.nurgePlus? <Box bgcolor="primary.light" p={3} mb={3} overflow="hidden" position="relative">
             <Box display="flex" justifyContent="space-between">
               <Box>
                 <Typography variant="h5" mb={2}>
-                  Unlimited <br />
-                  Access
+                 Unlock all <br/> Prompts
                 </Typography>
-                <Button variant="contained" color="primary">
-                  Upgrade
+                <Button style={{
+                  zIndex:999999
+                }} onClick={()=> window.open('https://www.neurge.com/products/neurge-plus' , '_blank')}  variant="contained" color="primary">
+Get Neurge Plus
                 </Button>
               </Box>
-              <img src={"/images/backgrounds/unlimited-bg.png"} alt="unlimited" className="signup-bg"></img>
+              <img src={"/images/backgrounds/setting.png"} alt="unlimited" className="signup-bg"></img>
             </Box>
-          </Box>
+          </Box>:null
+          }
+         
+
           <Button 
           variant="contained"
            color="primary" onClick={logoutUser} fullWidth>

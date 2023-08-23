@@ -69,7 +69,7 @@ const ProductsCardNotPurchased = () => {
                        </Box>
                      </Stack>
                      <Stack spacing={2} mt={3} mb={3}>
-                       <Button  size="large" variant="text" color='info'onClick={() => window.open('https://neurge.com', '_blank')} >
+                       <Button  size="large" variant="text" color='info'onClick={() => window.open('https://www.neurge.com/' , '_blank')} >
                          Buy Prompts Pack
                        </Button>
                       

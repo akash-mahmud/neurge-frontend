@@ -44,7 +44,7 @@ const Menuitems: MenuitemsType[] = [
   {
     id: uniqueId(),
     title: 'Prompt Packs',
-    chip: '13',
+    chip: '12',
     chipColor: 'secondary',
     icon: HowToVoteRounded,
     href: '/products',
@@ -52,7 +52,7 @@ const Menuitems: MenuitemsType[] = [
   {
     id: uniqueId(),
     title: 'Addons',
-    chip: '7',
+    chip: '2',
     chipColor: 'secondary',
     icon: LibraryAddRounded,
     href: '/addons',
